@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:descendantFocusability="blocksDescendants">
+
+    <RelativeLayout
+        android:id="@+id/relativeLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:id="@+id/linearLayout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/car_logo"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:layout_margin="10dp"
+                android:src="@drawable/sn"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginTop="10dp"
+            android:layout_toRightOf="@+id/linearLayout">
+
+            <LinearLayout
+                android:layout_width="150dp"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:id="@+id/cement_tanker"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="水泥罐车"
+                    android:textColor="#ff9900"
+                    android:background="@drawable/textview_border"/>
+                <TextView
+                    android:id="@+id/length"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="11.9米"
+                    android:textColor="#99cc33"
+                    android:background="@drawable/textview_border1"/>
+                <TextView
+                    android:id="@+id/ton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="#6699ff"
+                    android:background="@drawable/textview_border2"
+                    android:text="40.0吨"/>
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/number_plate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:gravity="center"
+                android:text="豫A00000"
+                android:textSize="17sp"/>
+
+            <TextView
+                android:id="@+id/driver_phone"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:gravity="center"
+                android:text="张司机13000000000" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:orientation="vertical"
+            android:layout_margin="10dp">
+
+            <Button
+                android:id="@+id/see_waybill"
+                android:layout_width="wrap_content"
+                android:layout_height="30dp"
+                android:background="#ff9900"
+                android:layout_marginBottom="10dp"
+                android:text="联系人"
+                android:textColor="#ffffff"/>
+            <Button
+                android:id="@+id/bind_driver"
+                android:layout_width="wrap_content"
+                android:layout_height="30dp"
+                android:background="#1E90FF"
+                android:text="绑定司机"
+                android:textColor="#ffffff"/>
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+</RelativeLayout>

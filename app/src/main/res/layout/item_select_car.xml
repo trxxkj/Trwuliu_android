@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <!--<RelativeLayout-->
+        <!--android:id="@+id/relativeLayout"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content">-->
+
+        <!--<EditText-->
+            <!--android:id="@+id/edit_car"-->
+            <!--android:layout_width="300dp"-->
+            <!--android:layout_height="wrap_content" />-->
+
+        <!--<Button-->
+            <!--android:layout_width="80dp"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_toRightOf="@+id/edit_car"-->
+            <!--android:background="#ff9900"-->
+            <!--android:text="搜索" />-->
+
+    <!--</RelativeLayout>-->
+
+    <!--<ListView-->
+        <!--android:id="@+id/listView5"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="match_parent"-->
+        <!--android:layout_below="@+id/relativeLayout" />-->
+
+</RelativeLayout>

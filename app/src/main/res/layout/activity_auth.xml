@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ffffff"
+    tools:context="cn.trxxkj.trwuliu.driver.ui.AuthActivity">
+
+    <RelativeLayout
+        android:id="@+id/layout_auth_topbar"
+        style="@style/TopbarStyle">
+
+        <ImageView
+            android:id="@+id/img_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_margin="6dp"
+            android:src="@drawable/flight_title_back_normal" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:text="用户认证"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textColor="#000000"
+            android:textSize="17sp" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_below="@+id/layout_auth_topbar">
+
+        <RelativeLayout
+            android:id="@+id/layout_personal_auth"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
+            <TextView
+                android:id="@+id/tv_personal_auth"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:text="个人认证"
+                android:textSize="16sp" />
+
+            <View
+                android:id="@+id/indicator1"
+                android:layout_width="150dp"
+                android:layout_height="1dp"
+                android:layout_alignParentBottom="true"
+                android:layout_centerHorizontal="true"
+                android:background="#0193de" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/layout_driver_auth"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
+            <TextView
+                android:id="@+id/tv_driver_auth"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:text="司机认证"
+                android:textColor="#4f4f4f"
+                android:textSize="16sp" />
+
+            <View
+                android:id="@+id/indicator2"
+                android:layout_width="150dp"
+                android:layout_height="1dp"
+                android:layout_alignParentBottom="true"
+                android:layout_centerHorizontal="true"
+                android:background="#0193de"
+                android:visibility="invisible" />
+        </RelativeLayout>
+    </LinearLayout>
+
+    <!--可滑动的布局内容-->
+    <android.support.v4.view.ViewPager
+        android:id="@+id/viewPager"
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        android:layout_below="@+id/linearLayout"
+        android:layout_marginTop="20dp"
+        android:background="#f1f1f1" />
+
+
+
+</RelativeLayout>
