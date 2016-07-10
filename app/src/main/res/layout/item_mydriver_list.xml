@@ -3,13 +3,15 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:descendantFocusability="blocksDescendants"
+    android:background="#FFFFFF"
     android:orientation="vertical">
 
     <RelativeLayout
         android:id="@+id/relativeLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp">
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp">
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -49,13 +51,14 @@
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentRight="true">
+            android:layout_marginRight="20dp"
+            android:layout_alignParentEnd="true">
 
             <ImageView
                 android:id="@+id/call_logo"
                 android:layout_width="60dp"
                 android:layout_height="60dp"
-                android:layout_marginRight="20dp"
+                android:padding="5dp"
                 android:src="@drawable/call_phone" />
         </LinearLayout>
 
@@ -63,7 +66,7 @@
 
     <View
         android:layout_width="match_parent"
-        android:layout_height="40px"
+        android:layout_height="2dp"
         android:layout_below="@+id/relativeLayout"
         android:background="#f4f4f4" />
 

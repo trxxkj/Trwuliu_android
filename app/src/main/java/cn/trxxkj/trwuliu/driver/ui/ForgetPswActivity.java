@@ -5,7 +5,6 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.os.StrictMode;
-import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -28,7 +27,7 @@ import cn.trxxkj.trwuliu.driver.bean.AppGetCodeReq;
 import cn.trxxkj.trwuliu.driver.bean.AppMemberReq;
 import cn.trxxkj.trwuliu.driver.bean.AppParam;
 import cn.trxxkj.trwuliu.driver.bean.Head;
-import cn.trxxkj.trwuliu.driver.util.Md5Utils;
+import cn.trxxkj.trwuliu.driver.utils.Md5Utils;
 
 /**
  * 用户忘记密码找回功能

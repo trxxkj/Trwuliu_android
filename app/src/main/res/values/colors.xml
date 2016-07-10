@@ -8,4 +8,13 @@
 
     <color name="lightwhite">#ddd</color>
     <color name="white">#FFFFFF</color>
+
+    <color name="background">#EEEEEE</color>
+    <color name="blackSub">#333333</color>
+
+
+    <color name="main">#0193de</color>
+    <color name="mainAdd">#0193de</color>
+
+    <color name="whiteAdd">#EAEAEA</color>
 </resources>

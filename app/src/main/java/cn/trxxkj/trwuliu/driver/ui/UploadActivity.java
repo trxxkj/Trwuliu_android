@@ -9,19 +9,17 @@ import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Environment;
 import android.provider.MediaStore;
-import android.support.v7.app.AppCompatActivity;
+
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 
-import com.lidroid.xutils.HttpUtils;
-import com.lidroid.xutils.exception.HttpException;
-import com.lidroid.xutils.http.RequestParams;
-import com.lidroid.xutils.http.ResponseInfo;
-import com.lidroid.xutils.http.callback.RequestCallBack;
-import com.lidroid.xutils.http.client.HttpRequest;
+
+import org.xutils.ex.HttpException;
+import org.xutils.http.RequestParams;
+import org.xutils.http.annotation.HttpRequest;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -101,25 +99,25 @@ public class UploadActivity extends Activity {
                 e.printStackTrace();
             }
             imageView.setImageBitmap(bitmap);
-        }
+        }}
 
-        //使用Xutils上传图片
-        HttpUtils httpUtils = new HttpUtils();
-        RequestParams params = new RequestParams();
-        params.addBodyParameter("addfile", new File(filePath));
-        httpUtils.send(HttpRequest.HttpMethod.POST, "http://file.trxxkj.cn/web/upload", params, new RequestCallBack<String>() {
-            @Override
-            public void onSuccess(ResponseInfo<String> responseInfo) {
-                //上传成功，这里面的返回值，就是服务器返回的数据
-                Log.e("返回值", responseInfo.result);
-            }
-
-            @Override
-            public void onFailure(HttpException e, String s) {
-                Log.e("失败:", e.getMessage());
-            }
-        });
-    }
+//        //使用Xutils上传图片
+//        HttpUtils httpUtils = new HttpUtils();
+//        RequestParams params = new RequestParams();
+//        params.addBodyParameter("addfile", new File(filePath));
+//        httpUtils.send(HttpRequest.HttpMethod.POST, "http://file.trxxkj.cn/web/upload", params, new RequestCallBack<String>() {
+//            @Override
+//            public void onSuccess(ResponseInfo<String> responseInfo) {
+//                //上传成功，这里面的返回值，就是服务器返回的数据
+//                Log.e("返回值", responseInfo.result);
+//            }
+//
+//            @Override
+//            public void onFailure(HttpException e, String s) {
+//                Log.e("失败:", e.getMessage());
+//            }
+//        });
+//    }
 
 //    public static String loginOfPost(){
 //        //使用Xutils上传用户登录信息

@@ -1,7 +1,6 @@
 package cn.trxxkj.trwuliu.driver.adapter;
 
 import android.content.Context;
-import android.util.Size;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,7 +12,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 import cn.trxxkj.trwuliu.driver.R;
-import cn.trxxkj.trwuliu.driver.base.ViewHolder;
+import cn.trxxkj.trwuliu.driver.view.ViewHolder;
 
 /**
  * 未确认计划列表适配器

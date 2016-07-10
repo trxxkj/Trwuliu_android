@@ -11,7 +11,6 @@ import android.widget.TextView;
 
 import com.baidu.android.pushservice.PushConstants;
 import com.baidu.android.pushservice.PushManager;
-import com.baidu.autoupdatesdk.UICheckUpdateCallback;
 
 import cn.trxxkj.trwuliu.driver.R;
 import cn.trxxkj.trwuliu.driver.SysApplication;
@@ -83,14 +82,6 @@ public class MainActivity extends FragmentActivity {
     }
 
 
-    private class MyUICheckUpdateCallback implements UICheckUpdateCallback {
-
-        @Override
-        public void onCheckComplete() {
-            dialog.dismiss();
-        }
-
-    }
 
     /**
      * 打开登录界面

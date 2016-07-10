@@ -193,6 +193,4 @@ public class PlanActivity extends FragmentActivity implements View.OnClickListen
 
     }
 
-
-
 }

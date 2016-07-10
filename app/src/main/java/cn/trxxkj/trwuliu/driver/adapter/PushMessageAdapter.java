@@ -9,7 +9,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import cn.trxxkj.trwuliu.driver.R;
-import cn.trxxkj.trwuliu.driver.base.ViewHolder;
+import cn.trxxkj.trwuliu.driver.view.ViewHolder;
 
 /**
  * 百度推送模块列表适配器

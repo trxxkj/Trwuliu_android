@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context="cn.trxxkj.trwuliu.driver.ui.MyDriverActivity">
 
     <RelativeLayout
@@ -48,29 +50,42 @@
             android:textSize="16sp" />
     </RelativeLayout>
 
-    <android.support.v4.view.ViewPager
-        android:id="@+id/viewPager"
+    <!--<android.support.v4.view.ViewPager-->
+        <!--android:id="@+id/viewPager"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="0dp"-->
+        <!--android:layout_weight="1"-->
+        <!--android:layout_below="@+id/relativeLayout"-->
+        <!--android:background="#ffffff"-->
+        <!--android:visibility="gone"/>-->
+
+    <ListView
+        android:id="@+id/lv_mydrive"
         android:layout_width="match_parent"
-        android:layout_height="450dp"
-        android:layout_below="@+id/relativeLayout"
-        android:layout_marginTop="10dp"
-        android:background="#ffffff"/>
+        android:layout_height="0dp"
+        android:layout_weight="1"
+
+        />
+
 
     <RelativeLayout
         android:id="@+id/relativeLayout1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/viewPager"
-        android:layout_marginTop="10dp">
+        android:layout_weight="0"
+        android:layout_gravity="bottom"
+        >
 
         <TextView
             android:id="@+id/add_driver"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
+            android:padding="2dp"
             android:background="@drawable/textview_border2"
             android:text="添加司机"
-            android:textColor="#6699ff"/>
+            android:textColor="#6699ff"
+            android:textSize="16sp"/>
     </RelativeLayout>
 
-</RelativeLayout>
+</LinearLayout>

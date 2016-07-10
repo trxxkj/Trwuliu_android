@@ -10,7 +10,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import cn.trxxkj.trwuliu.driver.R;
-import cn.trxxkj.trwuliu.driver.base.ViewHolder;
+import cn.trxxkj.trwuliu.driver.view.ViewHolder;
 
 /**
  * 运力模块我的车辆列表适配器

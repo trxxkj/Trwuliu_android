@@ -1,23 +1,13 @@
 package cn.trxxkj.trwuliu.driver.ui;
 
 import android.app.Activity;
-import android.content.Context;
+import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.content.pm.ProviderInfo;
-import android.graphics.Color;
-import android.graphics.drawable.BitmapDrawable;
 import android.os.Handler;
-import android.support.v7.app.AlertDialog;
 import android.os.Bundle;
-import android.text.Editable;
-import android.text.TextWatcher;
-import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
-import android.view.WindowManager;
-import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -30,14 +20,13 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.HashMap;
 import java.util.Map;
 
 import cn.trxxkj.trwuliu.driver.R;
 import cn.trxxkj.trwuliu.driver.adapter.DriverAdapter;
-import cn.trxxkj.trwuliu.driver.base.JudgeDate;
-import cn.trxxkj.trwuliu.driver.bean.ScreenInfo;
-import cn.trxxkj.trwuliu.driver.bean.WheelMain;
+import cn.trxxkj.trwuliu.driver.utils.JudgeDate;
+import cn.trxxkj.trwuliu.driver.wheel.ScreenInfo;
+import cn.trxxkj.trwuliu.driver.wheel.WheelMain;
 
 public class PostWaybillActivity extends Activity implements View.OnClickListener {
 

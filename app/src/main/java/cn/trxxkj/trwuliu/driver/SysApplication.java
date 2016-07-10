@@ -3,6 +3,7 @@ package cn.trxxkj.trwuliu.driver;
 
 import android.app.Activity;
 import android.app.Application;
+import android.graphics.Bitmap;
 
 import java.util.ArrayList;
 
@@ -11,6 +12,9 @@ import java.util.ArrayList;
  * @author cyh 2016.5.10 下午15:35
  */
 public class SysApplication extends Application {
+
+    //全局变量
+    public Bitmap mBitmap;
 
     private ArrayList<Activity> mList = new ArrayList<Activity>();
     private ArrayList<Activity> detailList = new ArrayList<Activity>();
@@ -32,36 +36,21 @@ public class SysApplication extends Application {
         mList.add(activity);
     }
 
-    public void exit() {
-        try {
-            for (Activity activity : mList) {
-                if (activity != null)
-                    activity.finish();
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        } finally {
-            System.exit(0);
-        }
-    }
 
-    public void addDetailActivity(Activity activity) {
-        detailList.add(activity);
-    }
-
-    /**
-     * 关闭多余的Detail页面，使其总数不超过2个
-     */
-    public void removeExtraActivity() {
-        if (detailList.size() > 2) {
-            detailList.get(0).finish();
-            detailList.remove(0);
-        }
-    }
 
     public void onLowMemory() {
         super.onLowMemory();
         System.gc();
+    }
+
+    /*
+    * 作用：结束一个 Activity
+    * 更新：2016-06-14
+    */
+    public void finishActivity(Activity activity) {
+
+        activity.finish();
+
     }
 
 }

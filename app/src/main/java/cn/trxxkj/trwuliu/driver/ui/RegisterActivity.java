@@ -27,7 +27,7 @@ import cn.trxxkj.trwuliu.driver.bean.AppGetCodeReq;
 import cn.trxxkj.trwuliu.driver.bean.AppMemberReq;
 import cn.trxxkj.trwuliu.driver.bean.AppParam;
 import cn.trxxkj.trwuliu.driver.bean.Head;
-import cn.trxxkj.trwuliu.driver.util.Md5Utils;
+import cn.trxxkj.trwuliu.driver.utils.Md5Utils;
 
 /**
  * 用户注册功能

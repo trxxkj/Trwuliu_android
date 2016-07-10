@@ -11,7 +11,7 @@ import android.widget.TextView;
 import java.util.List;
 
 import cn.trxxkj.trwuliu.driver.R;
-import cn.trxxkj.trwuliu.driver.base.ViewHolder;
+import cn.trxxkj.trwuliu.driver.view.ViewHolder;
 import cn.trxxkj.trwuliu.driver.bean.Track;
 
 /**
@@ -20,17 +20,12 @@ import cn.trxxkj.trwuliu.driver.bean.Track;
  */
 public class TrackAdapter extends BaseAdapter {
 
-//    private Context mContext = null;
     private List<Track> mList = null;
-//    private LayoutInflater mInflater;
+
 private LayoutInflater mInflater = null;
 
     public TrackAdapter(Context context) {
-//        this.mContext = context;
-////        mInflater = (LayoutInflater) context
-////                .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-//        mInflater = LayoutInflater.from(context);
-//        mList = list;
+
         super();
         mInflater = (LayoutInflater) context
                 .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
@@ -38,9 +33,6 @@ private LayoutInflater mInflater = null;
 
     @Override
     public int getCount() {
-//        if (mList != null) {
-//            return mList.size();
-//        }
         return 10;
     }
 
@@ -82,13 +74,6 @@ private LayoutInflater mInflater = null;
         holder.dateTrack.setText(mList.get(position).getDateTrack());
         holder.track.setText(mList.get(position).getTrack());
 
-//        holder.track.setOnClickListener(new View.OnClickListener() {
-//
-//            @Override
-//            public void onClick(View v) {
-//
-//            }
-//        });
         return convertView;
     }
 

@@ -28,6 +28,7 @@
         android:icon="@mipmap/logo"
         android:label="@string/app_name"
         android:supportsRtl="true"
+        android:name=".utils.App"
         android:theme="@style/AppTheme">
         <activity android:name=".ui.MainActivity">
             <intent-filter>
@@ -43,18 +44,29 @@
         <activity android:name=".ui.WaybillActivity" />
         <activity android:name=".ui.PlanActivity" />
         <activity android:name=".ui.UploadActivity" />
-        <!-- <activity android:name=".ui.PlanActivity"/> -->
+        <activity android:name=".ui.WbDetailActivity" />
+        <activity android:name=".ui.WbTrackActivity" />
+        <activity android:name=".ui.PlanDetailActivity" />
+        <activity android:name=".ui.PlanOngoingActivity" />
+        <activity android:name=".ui.PostWaybillActivity" />
+        <activity android:name=".ui.IssueWaybillActivity" />
+        <activity android:name=".ui.IssueWbDetailActivity" />
+        <activity android:name=".ui.IssueDriverActivity" />
+        <activity android:name=".ui.SelectCarActivity" />
+        <activity android:name=".ui.CapacityActivity" />
+        <activity android:name=".ui.AddOwnerActivity" />
+        <activity android:name=".ui.MyCarActivity" />
+        <activity android:name=".ui.AddCarActivity" />
+        <activity android:name=".ui.MyDriverActivity" />
+        <activity android:name=".ui.AddDriverActivity" />
+        <activity android:name=".ui.SettingActivity" />
+        <activity android:name=".ui.MyMessageActivity" />
+        <activity android:name=".ui.MyOwnerActivity"></activity>
 
 
-        <!-- add the following metadata for version and database name -->
-        <meta-data
-            android:name="AA_DB_NAME"
-            android:value="RestClient.db" />
-        <meta-data
-            android:name="AA_DB_VERSION"
-            android:value="1" />
 
-        <!-- push service start -->
+
+        <!-- 百度消息推送功能 -->
         <!-- 用于接收系统消息以保证PushService正常运行 -->
         <receiver
             android:name="com.baidu.android.pushservice.PushServiceReceiver"
@@ -114,63 +126,6 @@
             </intent-filter>
         </receiver>
 
-        <!-- 百度自动更新 -->
-        <activity
-            android:name="com.baidu.autoupdatesdk.ConfirmDialoigActivity"
-            android:exported="false"
-            android:screenOrientation="sensor"
-            android:theme="@style/bdp_update_dialog_style_fullscreen" />
-
-        <receiver
-            android:name="com.baidu.autoupdatesdk.receiver.BDBroadcastReceiver"
-            android:exported="false">
-            <intent-filter>
-                <action android:name="com.baidu.autoupdatesdk.ACTION_NEW_UPDATE" />
-                <action android:name="com.baidu.autoupdatesdk.ACTION_DOWNLOAD_COMPLETE" />
-                <action android:name="com.baidu.autoupdatesdk.ACTION_NEW_AS" />
-                <action android:name="com.baidu.autoupdatesdk.ACTION_AS_DOWNLOAD_COMPLETE" />
-            </intent-filter>
-        </receiver>
-
-        <meta-data
-            android:name="BDAPPID"
-            android:value="" />
-        <meta-data
-            android:name="BDAPPKEY"
-            android:value="" />
-
-        <!-- &lt;!&ndash; umeng自动更新 &ndash;&gt; -->
-        <!-- <service -->
-        <!-- android:name="com.umeng.update.net.DownloadingService" -->
-        <!-- android:process=":DownloadingService" > -->
-        <!-- </service> -->
-        <!-- <activity -->
-        <!-- android:name="com.umeng.update.UpdateDialogActivity" -->
-        <!-- android:theme="@android:style/Theme.Translucent.NoTitleBar" > -->
-        <!-- </activity> -->
-
-
-        <!-- &lt;!&ndash; uemng自动更新API Key &ndash;&gt; -->
-        <!-- <meta-data android:value="57454a9ce0f55a03e500238a" android:name="UMENG_APPKEY"/> -->
-        <!-- <meta-data android:value="Channel ID" android:name="UMENG_CHANNEL"/> -->
-        <activity android:name=".ui.WbDetailActivity" />
-        <activity android:name=".ui.WbTrackActivity" />
-        <activity android:name=".ui.PlanDetailActivity" />
-        <activity android:name=".ui.PlanOngoingActivity" />
-        <activity android:name=".ui.PostWaybillActivity" />
-        <activity android:name=".ui.IssueWaybillActivity" />
-        <activity android:name=".ui.IssueWbDetailActivity" />
-        <activity android:name=".ui.IssueDriverActivity" />
-        <activity android:name=".ui.SelectCarActivity" />
-        <activity android:name=".ui.CapacityActivity" />
-        <activity android:name=".ui.AddOwnerActivity" />
-        <activity android:name=".ui.MyCarActivity" />
-        <activity android:name=".ui.AddCarActivity" />
-        <activity android:name=".ui.MyDriverActivity" />
-        <activity android:name=".ui.AddDriverActivity" />
-        <activity android:name=".ui.SettingActivity" />
-        <activity android:name=".ui.MyMessageActivity" />
-        <activity android:name=".ui.MyOwnerActivity"></activity>
     </application>
 
 </manifest>

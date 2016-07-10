@@ -1,9 +1,8 @@
 package cn.trxxkj.trwuliu.driver.ui;
 
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.content.DialogInterface;
-import android.support.v7.app.AlertDialog;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
