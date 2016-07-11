@@ -130,7 +130,6 @@ public class RegisterActivity extends Activity implements View.OnClickListener {
         appParam.setBody(req);
         appParam.setSign("!&@#2016#");
 
-
         String sign = Md5Utils.getMD5Code(JSON.toJSONString(appParam));
         appParam.setSign(sign);
         System.out.println(appParam);
@@ -236,11 +235,8 @@ public class RegisterActivity extends Activity implements View.OnClickListener {
                 appParam.setBody(codeReq);
                 appParam.setSign("!&@#2016#");
 
-
-
                 String sign = Md5Utils.getMD5Code(JSON.toJSONString(appParam));
                 appParam.setSign(sign);
-
 
                 // 表单参数与get形式一样
                 connection.setDoOutput(true);// 是否输入参数

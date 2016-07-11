@@ -26,6 +26,7 @@ public class PlanDetailActivity extends Activity implements View.OnClickListener
         findViewById(R.id.img_back).setOnClickListener(this);
         findViewById(R.id.confirmplan).setOnClickListener(this);
         findViewById(R.id.rejectplan).setOnClickListener(this);
+
     }
 
     @Override
