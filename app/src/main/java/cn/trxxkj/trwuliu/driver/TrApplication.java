@@ -11,22 +11,22 @@ import java.util.ArrayList;
  * 全局Application
  * @author cyh 2016.5.10 下午15:35
  */
-public class SysApplication extends Application {
+public class TrApplication extends Application {
 
     //全局变量
     public Bitmap mBitmap;
 
     private ArrayList<Activity> mList = new ArrayList<Activity>();
     private ArrayList<Activity> detailList = new ArrayList<Activity>();
-    private static SysApplication instance;
+    private static TrApplication instance;
 
-    private SysApplication() {
+    private TrApplication() {
 
     }
 
-    public synchronized static SysApplication getInstance() {
+    public synchronized static TrApplication getInstance() {
         if (null == instance) {
-            instance = new SysApplication();
+            instance = new TrApplication();
         }
         return instance;
     }

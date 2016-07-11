@@ -1,7 +1,6 @@
 package cn.trxxkj.trwuliu.driver.ui;
 
 import android.app.ProgressDialog;
-import android.content.Intent;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentTabHost;
 import android.os.Bundle;
@@ -13,7 +12,7 @@ import com.baidu.android.pushservice.PushConstants;
 import com.baidu.android.pushservice.PushManager;
 
 import cn.trxxkj.trwuliu.driver.R;
-import cn.trxxkj.trwuliu.driver.SysApplication;
+import cn.trxxkj.trwuliu.driver.TrApplication;
 import cn.trxxkj.trwuliu.driver.ui.fragment.CapacityFragment;
 import cn.trxxkj.trwuliu.driver.ui.fragment.HomeFragment;
 import cn.trxxkj.trwuliu.driver.ui.fragment.MessageFragment;
@@ -40,7 +39,7 @@ public class MainActivity extends FragmentActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        SysApplication.getInstance().addActivity(this);
+        TrApplication.getInstance().addActivity(this);
         setContentView(R.layout.activity_main);
 
         //百度云推送
