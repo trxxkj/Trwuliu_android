@@ -39,8 +39,9 @@ public class UploadImageActivity extends Activity {
         imageView = (ImageView) findViewById(R.id.imageView);
     }
 
-    /*
-     * 从相册获取
+    /**
+     * 从相册获取图片
+     * @param view
      */
     public void gallery(View view) {
         // 激活系统图库，选择一张图片
@@ -49,8 +50,9 @@ public class UploadImageActivity extends Activity {
         startActivityForResult(intent, PHOTO_REQUEST_GALLERY);
     }
 
-    /*
-     * 从相机获取
+    /**
+     * 从相机获取图片
+     * @param view
      */
     public void camera(View view) {
         Intent intent = new Intent("android.media.action.IMAGE_CAPTURE");
@@ -99,8 +101,6 @@ public class UploadImageActivity extends Activity {
 
     /**
      * 剪切图片
-     * @author:cyh
-     * @date:2016-5-15
      * @param uri
      */
     private void crop(Uri uri) {

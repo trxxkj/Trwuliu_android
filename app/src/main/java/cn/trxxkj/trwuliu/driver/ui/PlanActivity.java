@@ -102,6 +102,10 @@ public class PlanActivity extends FragmentActivity implements View.OnClickListen
 
     }
 
+    /**
+     * 界面切换
+     * @param position
+     */
     @Override
     public void onPageSelected(int position) {
         if (position == 0) {
@@ -152,6 +156,10 @@ public class PlanActivity extends FragmentActivity implements View.OnClickListen
 
     }
 
+    /**
+     * 点击事件
+     * @param v
+     */
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
@@ -173,6 +181,9 @@ public class PlanActivity extends FragmentActivity implements View.OnClickListen
         }
     }
 
+    /**
+     * FragmentPagerAdapter基础类
+     */
     public class MyFragmentPagerAdapter extends FragmentPagerAdapter {
 
         public MyFragmentPagerAdapter(FragmentManager fm) {
