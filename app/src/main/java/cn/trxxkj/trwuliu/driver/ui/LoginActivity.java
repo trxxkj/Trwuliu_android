@@ -53,7 +53,8 @@ import cn.trxxkj.trwuliu.driver.utils.Md5Utils;
  * 用户登录功能
  * @author cyh 2016.4.1 上午8:49
  */
-public class LoginActivity extends Activity implements View.OnClickListener, ViewPager.OnPageChangeListener {
+
+public class  LoginActivity extends Activity implements View.OnClickListener, ViewPager.OnPageChangeListener {
     //账号登录
     private EditText account;
     private EditText passWord;
