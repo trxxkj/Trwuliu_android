@@ -45,14 +45,6 @@ public class MainActivity extends FragmentActivity {
 
         //百度云推送
         PushManager.startWork(getApplicationContext(), PushConstants.LOGIN_TYPE_API_KEY, "B0pttqMTh7f1zOR5YpfR2aXl");
-        //百度APP自动更新
-        dialog = new ProgressDialog(this);
-        dialog.setIndeterminate(true);
-
-//        BDAutoUpdateSDK.uiUpdateAction(this, new MyUICheckUpdateCallback());
-//        Umeng自动更新
-//        UmengUpdateAgent.setUpdateOnlyWifi(false);
-//        UmengUpdateAgent.update(this);
 
         mTabHost = (FragmentTabHost) findViewById(android.R.id.tabhost);
         mTabHost.setup(this, getSupportFragmentManager(), R.id.realtabcontent);
@@ -79,23 +71,6 @@ public class MainActivity extends FragmentActivity {
     protected void onDestroy() {
         dialog.dismiss();
         super.onDestroy();
-    }
-
-
-
-    /**
-     * 打开登录界面
-     */
-    public void Login() {
-        Intent intent = new Intent(this, LoginActivity.class);
-        startActivity(intent);
-    }
-
-    /**
-     * 分类
-     */
-    public void activeCategory() {
-        mTabHost.setCurrentTab(1);
     }
 
 }

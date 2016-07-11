@@ -121,11 +121,6 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
         ImageLoader.getInstance().init(config);
     }
 
-    private void activeCategory() {
-        MainActivity activity = (MainActivity) getActivity();
-        activity.activeCategory();
-    }
-
     // 开始自动翻页
     @Override
     public void onResume() {

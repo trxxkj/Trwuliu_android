@@ -82,14 +82,12 @@ public class LoginActivity extends Activity implements View.OnClickListener, Vie
     private Button phoneRegister;
     private Button btnLoginCode;
 
-
     protected static final int SUCCESS = 0;
     protected static final int FAILTURE = 1;
     protected static final int ERROR = 2;
 
     private Context context;
     App app;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -148,7 +146,6 @@ public class LoginActivity extends Activity implements View.OnClickListener, Vie
         phoneLogin.setOnClickListener(this);
         phoneRegister.setOnClickListener(this);
         btnLoginCode.setOnClickListener(this);
-
     }
 
     @Override
@@ -463,8 +460,6 @@ public class LoginActivity extends Activity implements View.OnClickListener, Vie
         }.start();
     }
 
-
-
     /**
      *  获取数据
      */
@@ -481,7 +476,6 @@ public class LoginActivity extends Activity implements View.OnClickListener, Vie
         req.setAccount(account.getText().toString());
         req.setLoginType(0);
         req.setPswdMd5(Md5Utils.getMD5Code(passWord.getText().toString()));
-
 
         appParam.setHead(head);
         appParam.setBody(req);
@@ -528,8 +522,6 @@ public class LoginActivity extends Activity implements View.OnClickListener, Vie
 
         });
 
-
-
 //        requestUrl(HttpMethod.POST, url, params, new RequestCallBack<String>() {
 //
 //                    Message msg = Message.obtain();
@@ -555,12 +547,8 @@ public class LoginActivity extends Activity implements View.OnClickListener, Vie
 //                    }
 //
 //                });
-
-
-
     }
 
-    //
     private UserBean userBean;
 
     private Handler userhandler = new Handler() {
@@ -568,22 +556,16 @@ public class LoginActivity extends Activity implements View.OnClickListener, Vie
         public void handleMessage(Message msg) {
 
             switch (msg.what) {
-
                 case SUCCESS: // 成功
                     String result = (String) msg.obj;
                     Gson gson = new  Gson();
                     userBean = gson.fromJson(result, UserBean.class);
-
                     // 设置tokenid
                     app.setToken(userBean.returnData.tokenId);
                     app.setUserid(userBean.returnData.id);
-
                     Toast.makeText(context,userBean.returnData.cellphone,Toast.LENGTH_SHORT).show();
-
                     break;
                 case FAILTURE: // 失败
-
-
                     break;
                 default:
                     break;
@@ -594,11 +576,8 @@ public class LoginActivity extends Activity implements View.OnClickListener, Vie
 
     };
 
-
-
     /**
      * 判断网络连接状态
-     *
      * @param context
      * @return
      */
@@ -614,7 +593,6 @@ public class LoginActivity extends Activity implements View.OnClickListener, Vie
         }
         return false;
     }
-
 
 //    // 访问网络
 //    public <T> void requestUrl(HttpMethod method, String url,
@@ -635,7 +613,6 @@ public class LoginActivity extends Activity implements View.OnClickListener, Vie
 //        httpUtils.send(method, url, params, callBack);
 //
 //    }
-
 
 }
 
