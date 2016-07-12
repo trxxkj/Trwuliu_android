@@ -14,8 +14,9 @@ import cn.trxxkj.trwuliu.driver.ui.MyMessageActivity;
 
 /**
  * 百度推送消息界面
- * @author cyh 2016.4.20 下午14:39
+ * @author cyh 2016.6.15 下午14:39
  */
+
 public class PushMessageFragment extends ListFragment {
 
     private PushMessageAdapter adapter = null;

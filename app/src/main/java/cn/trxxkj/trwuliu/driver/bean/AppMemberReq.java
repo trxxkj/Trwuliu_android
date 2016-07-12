@@ -5,8 +5,9 @@ import cn.trxxkj.trwuliu.driver.base.BaseReq;
 
 /**
  * App登录请求参数
- * @author cyh 2016.5.23 上午11:30
+ * @author cyh 2016.6.23 上午11:30
  */
+
 public class AppMemberReq extends BaseReq {
     //登录手机号
     private String account;

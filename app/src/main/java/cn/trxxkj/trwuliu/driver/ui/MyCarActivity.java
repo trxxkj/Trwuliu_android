@@ -19,7 +19,7 @@ import cn.trxxkj.trwuliu.driver.ui.fragment.MyCarFragment;
 
 /**
  * 我的车辆
- * @author cyh 2016.6.13 下午15:56
+ * @author cyh 2016.6.20 下午15:56
  */
 public class MyCarActivity extends FragmentActivity implements View.OnClickListener {
 

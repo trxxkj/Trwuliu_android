@@ -12,8 +12,9 @@ import cn.trxxkj.trwuliu.driver.view.ViewHolder;
 
 /**
  * 已拒绝计划列表适配器
- * @author cyh 2016.5.10
+ * @author cyh 2016.6.22  上午10:59
  */
+
 public class RefusePlanAdapter extends BaseAdapter {
 
     private LayoutInflater mInflater = null;

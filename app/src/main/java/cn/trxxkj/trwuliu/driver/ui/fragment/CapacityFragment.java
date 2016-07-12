@@ -8,13 +8,12 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import cn.trxxkj.trwuliu.driver.R;
-import cn.trxxkj.trwuliu.driver.ui.AddOwnerActivity;
 import cn.trxxkj.trwuliu.driver.ui.MyCarActivity;
 import cn.trxxkj.trwuliu.driver.ui.MyDriverActivity;
 
 /**
  * 运力模块
- * Created by admin on 2016/4/29.
+ * @author cyh 2016.7.1 下午20:30
  */
 
 public class CapacityFragment extends Fragment implements View.OnClickListener {
@@ -30,8 +29,6 @@ public class CapacityFragment extends Fragment implements View.OnClickListener {
     }
 
     private void initView() {
-        //我的车主
-        layout.findViewById(R.id.my_owner).setOnClickListener(this);
         //我的车辆
         layout.findViewById(R.id.my_car).setOnClickListener(this);
         //我的司机
@@ -41,9 +38,6 @@ public class CapacityFragment extends Fragment implements View.OnClickListener {
     @Override
     public void onClick(View v) {
         switch (v.getId()){
-            case R.id.my_owner:
-                startActivity(new Intent(getActivity(), AddOwnerActivity.class));   //打开我的车主界面
-                break;
             case R.id.my_car:
                 startActivity(new Intent(getActivity(), MyCarActivity.class));      //打开我的车辆界面
                 break;

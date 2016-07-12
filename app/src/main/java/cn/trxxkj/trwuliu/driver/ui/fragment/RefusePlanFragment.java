@@ -12,7 +12,7 @@ import cn.trxxkj.trwuliu.driver.adapter.RefusePlanAdapter;
 
 /**
  * 已拒绝计划界面
- * @author cyh 2016.4.20 下午14:39
+ * @author cyh 2016.6.20 下午14:39
  */
 
 public class RefusePlanFragment extends ListFragment {

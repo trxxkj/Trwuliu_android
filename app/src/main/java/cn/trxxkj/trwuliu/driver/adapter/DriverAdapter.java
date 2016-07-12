@@ -7,8 +7,6 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.Filter;
 import android.widget.Filterable;
-import android.widget.ImageView;
-import android.widget.RadioButton;
 import android.widget.TextView;
 
 
@@ -19,8 +17,8 @@ import cn.trxxkj.trwuliu.driver.R;
 import cn.trxxkj.trwuliu.driver.bean.Driver;
 
 /**
- *
- * Created by admin on 2016/6/17.
+ * 司机基础类
+ * @author cyh 2016.6.17 下午19:30
  */
 public class DriverAdapter extends BaseAdapter implements Filterable{
 

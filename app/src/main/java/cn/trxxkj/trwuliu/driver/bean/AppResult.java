@@ -1,5 +1,10 @@
 package cn.trxxkj.trwuliu.driver.bean;
 
+/**
+ * App返回结果
+ * @author cyh 2016.6.23 上午10:45
+ */
+
 public class AppResult {
 
     private String code;

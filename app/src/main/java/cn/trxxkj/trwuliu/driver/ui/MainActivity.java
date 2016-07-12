@@ -20,11 +20,10 @@ import cn.trxxkj.trwuliu.driver.ui.fragment.MineFragment;
 
 /**
  * 主界面布局
- * @author cyh 2016.4.1 下午14:25
+ * @author cyh 2016.6.15 下午14:25
  */
 public class MainActivity extends FragmentActivity {
 
-    private ProgressDialog dialog;
 
     private FragmentTabHost mTabHost;
     private Class[] mFragments = new Class[]{HomeFragment.class,
@@ -68,7 +67,6 @@ public class MainActivity extends FragmentActivity {
 
     @Override
     protected void onDestroy() {
-        dialog.dismiss();
         super.onDestroy();
     }
 

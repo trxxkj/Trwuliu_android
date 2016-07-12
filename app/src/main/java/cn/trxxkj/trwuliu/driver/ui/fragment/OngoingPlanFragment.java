@@ -14,8 +14,9 @@ import cn.trxxkj.trwuliu.driver.ui.PlanOngoingActivity;
 
 /**
  * 进行中计划界面
- * @author cyh 2016.5.04 上午10:30
+ * @author cyh 2016.6.16 上午10:30
  */
+
 public class OngoingPlanFragment extends ListFragment {
 
     private OngoingPlanAdapter adapter = null;

@@ -13,8 +13,9 @@ import cn.trxxkj.trwuliu.driver.view.ViewHolder;
 
 /**
  * 百度推送模块列表适配器
- * @author cyh 2016.4.15 下午15:35
+ * @author cyh 2016.6.15 下午15:35
  */
+
 public class PushMessageAdapter extends BaseAdapter {
 
     private LayoutInflater mInflater = null;

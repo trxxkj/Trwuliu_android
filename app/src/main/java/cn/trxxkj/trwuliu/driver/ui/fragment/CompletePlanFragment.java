@@ -16,9 +16,10 @@ import cn.trxxkj.trwuliu.driver.R;
 import cn.trxxkj.trwuliu.driver.adapter.CompletePlanAdapter;
 
 /**
- * 已完成运单界面
- * @author cyh 2016.5.12 下午17:22
+ * 已完成计划界面
+ * @author cyh 2016.6.16 下午17:22
  */
+
 public class CompletePlanFragment extends ListFragment {
 
     private CompletePlanAdapter adapter = null;

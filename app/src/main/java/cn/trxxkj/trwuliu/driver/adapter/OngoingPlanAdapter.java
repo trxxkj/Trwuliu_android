@@ -13,7 +13,7 @@ import cn.trxxkj.trwuliu.driver.view.ViewHolder;
 
 /**
  * 进行中计划列表适配器
- * @author cyh 2016.6.05 下午16:55
+ * @author cyh 2016.6.21 下午16:55
  */
 
 public class OngoingPlanAdapter extends BaseAdapter {

@@ -8,7 +8,7 @@ import cn.trxxkj.trwuliu.driver.R;
 
 /**
  * 运单详情
- * @author cyh 2016.5.26 下午14:37
+ * @author cyh 2016.6.26 下午14:37
  */
 
 public class WbDetailActivity extends Activity implements View.OnClickListener {

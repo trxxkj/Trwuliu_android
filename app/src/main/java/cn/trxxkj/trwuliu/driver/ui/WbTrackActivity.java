@@ -18,7 +18,7 @@ import cn.trxxkj.trwuliu.driver.R;
 
 /**
  * 运单轨迹
- * @author cyh 2016.5.25
+ * @author cyh 2016.6.25
  */
 
 public class WbTrackActivity extends Activity implements View.OnClickListener, ViewPager.OnPageChangeListener {

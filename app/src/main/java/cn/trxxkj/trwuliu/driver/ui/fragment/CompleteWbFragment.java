@@ -10,6 +10,10 @@ import android.widget.ListView;
 import cn.trxxkj.trwuliu.driver.R;
 import cn.trxxkj.trwuliu.driver.adapter.CompleteWbAdapter;
 
+/**
+ * 已完成运单界面
+ * @author cyh 2016.6.17 下午16:22
+ */
 
 public class CompleteWbFragment extends ListFragment {
 

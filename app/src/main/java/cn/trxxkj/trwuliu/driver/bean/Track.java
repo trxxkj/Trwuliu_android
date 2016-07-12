@@ -3,9 +3,10 @@ package cn.trxxkj.trwuliu.driver.bean;
 import cn.trxxkj.trwuliu.driver.ui.SelectCarActivity;
 
 /**
- * 运单轨迹请求参数
+ * 运单轨迹实体类
  * @author cyh 2016.6.25 下午15:30
  */
+
 public class Track {
 
     private String dateTrack;

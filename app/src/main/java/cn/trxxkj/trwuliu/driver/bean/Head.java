@@ -2,7 +2,9 @@ package cn.trxxkj.trwuliu.driver.bean;
 
 /**
  * App请求参数Head类
+ * @author cyh 2016.6.23 上午9:30
  */
+
 public class Head {
 
     private String tokenId;

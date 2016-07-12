@@ -11,7 +11,7 @@ import cn.trxxkj.trwuliu.driver.R;
 
 /**
  * 计划详情
- * @author cyh 2016.6.13 上午11:51
+ * @author cyh 2016.6.20 上午11:51
  */
 
 public class PlanDetailActivity extends Activity implements View.OnClickListener {

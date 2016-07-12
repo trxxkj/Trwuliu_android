@@ -12,19 +12,16 @@ import cn.trxxkj.trwuliu.driver.adapter.MyDriverAdapter;
 
 /**
  * 运力模块我的司机界面
- * @author cyh 2016.5.24 下午16:40
+ * @author cyh 2016.6.24 下午16:40
  */
 
 public class MyDriverFragment extends ListFragment {
 
-    private MyDriverAdapter adapter = null;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        adapter = new MyDriverAdapter(getActivity());
-        setListAdapter(adapter);
     }
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {

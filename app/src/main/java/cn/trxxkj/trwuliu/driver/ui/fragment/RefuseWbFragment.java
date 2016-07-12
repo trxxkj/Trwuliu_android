@@ -12,7 +12,7 @@ import cn.trxxkj.trwuliu.driver.adapter.RefuseWbAdapter;
 
 /**
  * 已拒绝运单界面
- * @author cyh 2016.4.19 下午14:39
+ * @author cyh 2016.6.19 下午14:39
  */
 
 public class RefuseWbFragment extends ListFragment {

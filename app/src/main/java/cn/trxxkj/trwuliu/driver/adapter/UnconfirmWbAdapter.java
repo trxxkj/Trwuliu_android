@@ -13,7 +13,7 @@ import cn.trxxkj.trwuliu.driver.view.ViewHolder;
 
 /**
  * 未确认运单列表适配器
- * @author cyh 2016.5.4 下午15:30
+ * @author cyh 2016.6.26 下午15:30
  */
 
 public class UnconfirmWbAdapter extends BaseAdapter {

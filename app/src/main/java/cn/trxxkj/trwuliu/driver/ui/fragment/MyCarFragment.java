@@ -14,6 +14,7 @@ import cn.trxxkj.trwuliu.driver.adapter.MyCarAdapter;
  *运力模块我的车辆界面
  * @author cyh 2016.6.23 下午15:35
  */
+
 public class MyCarFragment extends ListFragment {
 
     private MyCarAdapter adapter = null;

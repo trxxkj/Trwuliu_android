@@ -50,7 +50,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true"
-                android:text="未确认计划"
+                android:text="未确认"
                 android:textColor="#ffffff" />
 
             <ImageView
@@ -76,7 +76,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true"
-                android:text="进行中计划"
+                android:text="进行中"
                 android:textColor="#435356" />
 
             <ImageView
@@ -102,7 +102,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true"
-                android:text="已完成计划"
+                android:text="已完成"
                 android:textColor="#435356" />
 
             <ImageView
@@ -128,7 +128,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true"
-                android:text="已拒绝计划"
+                android:text="已拒绝"
                 android:textColor="#435356" />
 
             <ImageView

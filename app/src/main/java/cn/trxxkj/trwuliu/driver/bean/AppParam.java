@@ -1,7 +1,9 @@
 package cn.trxxkj.trwuliu.driver.bean;
 
+
 /**
  * App访问服务端接口参数格式
+ * @author cyh 2016.6.23 上午10:30
  * @param <T>
  */
 public class AppParam<T> {

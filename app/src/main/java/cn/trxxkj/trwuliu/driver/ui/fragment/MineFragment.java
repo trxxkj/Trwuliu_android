@@ -23,8 +23,9 @@ import cn.trxxkj.trwuliu.driver.ui.WaybillActivity;
 
 /**
  * 我的界面
- * @author cyh 2016.5.10 下午15:52
+ * @author cyh 2016.6.18 下午15:52
  */
+
 public class MineFragment extends Fragment implements View.OnClickListener {
 
     private View layout;
@@ -83,7 +84,5 @@ public class MineFragment extends Fragment implements View.OnClickListener {
         ViewGroup parent = (ViewGroup) layout.getParent();
         parent.removeView(layout);
     }
-
-
 
 }

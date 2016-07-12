@@ -12,7 +12,7 @@ import cn.trxxkj.trwuliu.driver.view.ViewHolder;
 
 /**
  * 已完成计划列表适配器
- * @author cyh 2016.6.22
+ * @author cyh 2016.6.22 下午15:40
  */
 
 public class CompletePlanAdapter extends BaseAdapter {

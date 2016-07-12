@@ -1,6 +1,8 @@
 package cn.trxxkj.trwuliu.driver.ui;
 
 import android.app.Activity;
+import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -9,8 +11,14 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import com.alibaba.fastjson.JSON;
+import com.google.gson.Gson;
+
+import org.xutils.common.Callback;
+import org.xutils.http.RequestParams;
+import org.xutils.x;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -27,11 +35,14 @@ import cn.trxxkj.trwuliu.driver.bean.AppGetCodeReq;
 import cn.trxxkj.trwuliu.driver.bean.AppMemberReq;
 import cn.trxxkj.trwuliu.driver.bean.AppParam;
 import cn.trxxkj.trwuliu.driver.bean.Head;
+import cn.trxxkj.trwuliu.driver.bean.UserBean;
 import cn.trxxkj.trwuliu.driver.utils.Md5Utils;
+import cn.trxxkj.trwuliu.driver.utils.MyContents;
+import cn.trxxkj.trwuliu.driver.utils.TRurl;
 
 /**
  * 用户注册功能
- * @author cyh 2016.4.10 上午9:12
+ * @author cyh 2016.6.15 上午9:12
  */
 
 public class RegisterActivity extends Activity implements View.OnClickListener {
@@ -45,10 +56,21 @@ public class RegisterActivity extends Activity implements View.OnClickListener {
     private Button code;
     private Button next;
 
+    protected static final int SUCCESS = 0;
+    protected static final int FAILTURE = 1;
+    protected static final int ERROR = 2;
+
+    //  登陆 ueser 对象
+    private UserBean userBean;
+
+    private Context context;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
+        context = this;
+
         if (android.os.Build.VERSION.SDK_INT > 9) {
             StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
             StrictMode.setThreadPolicy(policy);
@@ -95,26 +117,6 @@ public class RegisterActivity extends Activity implements View.OnClickListener {
      */
     private void Register() {
 
-        URL url = null;
-        try {
-            url = new URL("http://172.20.10.166:8081/app/member/register");
-        } catch (MalformedURLException e) {
-            e.printStackTrace();
-        }
-        // 打开url连接
-        HttpURLConnection connection = null;
-        try {
-            connection = (HttpURLConnection) url.openConnection();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        // 设置url请求方式 ‘get’ 或者 ‘post’
-        try {
-            connection.setRequestMethod("POST");
-        } catch (ProtocolException e) {
-            e.printStackTrace();
-        }
-        StringBuffer params = new StringBuffer();
         AppParam<AppMemberReq> appParam = new AppParam<AppMemberReq>();
         Head head = new Head();
         head.setAccount(account.getText().toString());
@@ -126,41 +128,93 @@ public class RegisterActivity extends Activity implements View.OnClickListener {
         req.setPswdMd5(Md5Utils.getMD5Code(pswdMd5.getText().toString()));
         req.setAuthCode(authCode.getText().toString());
 
+
         appParam.setHead(head);
         appParam.setBody(req);
         appParam.setSign("!&@#2016#");
 
         String sign = Md5Utils.getMD5Code(JSON.toJSONString(appParam));
         appParam.setSign(sign);
-        System.out.println(appParam);
 
-        // 表单参数与get形式一样
-        connection.setDoOutput(true);// 是否输入参数
-        params.append("param").append("=").append(JSON.toJSONString(appParam));
-        System.out.println(params);
-        byte[] bypes = params.toString().getBytes();
-        try {
-            connection.getOutputStream().write(bypes);// 输入参数
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        RequestParams params = new RequestParams(TRurl.REGISTER);
+        params.setConnectTimeout(15*1000);
 
-        // 发送
-        BufferedReader in = null;
-        try {
-            in = new BufferedReader(new InputStreamReader(connection.getInputStream()));
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        String response = null;
-        try {
-            response = in.readLine();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        System.out.println(response);
+        params.addBodyParameter("param" , JSON.toJSONString(appParam));
+
+        x.http().post(params,new Callback.CommonCallback<String>() {
+            Message msg = Message.obtain();
+            @Override
+            public void onSuccess(String s) {
+
+                System.out.println("-----------" +  s + "-------------------");
+
+                msg.obj = s;
+                msg.what = SUCCESS;
+                userhandler.sendMessage(msg);
+
+            }
+
+            @Override
+            public void onError(Throwable throwable, boolean b) {
+                msg.what = FAILTURE;
+                msg.obj = throwable.getMessage();
+                userhandler.sendMessage(msg);
+            }
+
+            @Override
+            public void onFinished() {
+            }
+            @Override
+            public void onCancelled(CancelledException e) {
+            }
+
+        });
 
     }
+
+
+    private Handler userhandler = new Handler() {
+
+        public void handleMessage(Message msg) {
+
+            switch (msg.what) {
+
+                case SUCCESS: // 成功
+
+                    String result = (String) msg.obj;
+                    Gson gson = new  Gson();
+                    userBean = gson.fromJson(result, UserBean.class);
+
+                    if ("000000".equals(userBean.code)) {
+
+                        Toast.makeText(context , "注册成功" , Toast.LENGTH_SHORT).show();
+                        finish();
+
+                    } else { // 出现  异常
+
+                        Toast.makeText(context , userBean.message , Toast.LENGTH_SHORT).show();
+
+                    }
+
+                    break;
+
+                case FAILTURE: // 失败
+
+                    String error = (String) msg.obj;
+
+                    Toast.makeText(context , "网络异常！" ,Toast.LENGTH_SHORT).show();
+
+                    break;
+                default:
+                    break;
+
+            }
+
+        }
+
+    };
+
+
 
     /**
      * 60秒定时器
@@ -174,7 +228,7 @@ public class RegisterActivity extends Activity implements View.OnClickListener {
         public void handleMessage(Message msg) {
             second--;
             if (second == 0) {
-                timer.cancel();//如果倒计时完成,取消定时事件
+                timer.cancel();   //如果倒计时完成,取消定时事件
                 code.setEnabled(true);
                 second = 60;
                 code.setText("重新获取");
@@ -235,8 +289,11 @@ public class RegisterActivity extends Activity implements View.OnClickListener {
                 appParam.setBody(codeReq);
                 appParam.setSign("!&@#2016#");
 
+
+
                 String sign = Md5Utils.getMD5Code(JSON.toJSONString(appParam));
                 appParam.setSign(sign);
+
 
                 // 表单参数与get形式一样
                 connection.setDoOutput(true);// 是否输入参数

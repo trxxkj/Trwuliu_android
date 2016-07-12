@@ -30,7 +30,7 @@ import cn.trxxkj.trwuliu.driver.view.NetworkImageHolderView;
 
 /**
  * 主界面
- * @author cyh 2016.4.25 下午16:20
+ * @author cyh 2016.6.10 下午16:20
  */
 
 public class HomeFragment extends Fragment implements View.OnClickListener {

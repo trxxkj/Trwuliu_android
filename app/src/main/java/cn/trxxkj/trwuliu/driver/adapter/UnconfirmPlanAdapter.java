@@ -8,31 +8,38 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.nostra13.universalimageloader.utils.L;
+
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 
 import cn.trxxkj.trwuliu.driver.R;
+import cn.trxxkj.trwuliu.driver.bean.PlanBean;
 import cn.trxxkj.trwuliu.driver.view.ViewHolder;
 
 /**
  * 未确认计划列表适配器
- * @author cyh 2016.4.30 下午15:30
+ * @author cyh 2016.6.30 下午15:30
  */
 
 public class UnconfirmPlanAdapter extends BaseAdapter {
 
+    private List<PlanBean.ReturnData> planlist;
     private LayoutInflater mInflater = null;
-    private ArrayList<HashMap<String, String>> mArrayList;
+    private Context context;
 
-    public UnconfirmPlanAdapter(Context context) {
+    public UnconfirmPlanAdapter(Context context, List<PlanBean.ReturnData> planlist) {
         super();
+        this.context = context;
+        this.planlist = planlist;
         mInflater = (LayoutInflater) context
                 .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
     }
 
     @Override
     public int getCount() {
-        return 10;
+        return planlist.size();
     }
 
     @Override
@@ -66,11 +73,11 @@ public class UnconfirmPlanAdapter extends BaseAdapter {
             holder = (ViewHolder) convertView.getTag();
         }
 
-        holder.planCode.setText("计划编码:JH1");
+        holder.planCode.setText(planlist.get(position).planCode);
         holder.cookCar.setImageResource(R.drawable.cook_car);
-        holder.status.setText("3分钟前发布");
-        holder.goods.setText("40吨水泥");
-        holder.dateGoods.setText("2016-04-16");
+        holder.status.setText(planlist.get(position).status);
+        holder.goods.setText(planlist.get(position).cargoname);
+        holder.dateGoods.setText(planlist.get(position).createtime);
         holder.ownerCar.setText("车主发车");
         holder.callPhone.setImageResource(R.drawable.call_phone);
         holder.dynamic.setText("接收");

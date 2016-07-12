@@ -12,7 +12,7 @@ import cn.trxxkj.trwuliu.driver.view.ViewHolder;
 
 /**
  * 进行中运单列表适配器
- * @author cyh 2016.5.25
+ * @author cyh 2016.6.25 下午19:00
  */
 
 public class OngoingWbAdapter extends BaseAdapter {

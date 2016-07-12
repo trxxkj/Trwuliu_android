@@ -31,24 +31,43 @@
             android:textSize="17sp" />
     </RelativeLayout>
 
-    <RelativeLayout
+    <LinearLayout
         android:id="@+id/relativeLayout"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="60dp"
+        android:orientation="horizontal"
         android:layout_below="@+id/layout_mydriver_topbar">
 
         <EditText
             android:id="@+id/search_input"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="20dp"
+            android:layout_width="0dp"
+            android:layout_height="38dp"
+            android:layout_weight="1"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="20dp"
             android:background="@drawable/search_edittext_shape"
-            android:drawableEnd="@drawable/search_icon"
             android:hint="车牌号/司机/联系方式"
             android:imeOptions="actionSearch"
             android:inputType="text"
             android:textSize="16sp" />
-    </RelativeLayout>
+
+        <ImageView
+            android:id="@+id/iv_search"
+            android:layout_width="38dp"
+            android:layout_height="38dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginLeft="20dp"
+            android:layout_gravity="center_vertical"
+            android:src="@drawable/search_icon"
+            />
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#F2F2F2"
+        />
 
     <!--<android.support.v4.view.ViewPager-->
         <!--android:id="@+id/viewPager"-->
@@ -65,6 +84,17 @@
         android:layout_height="0dp"
         android:layout_weight="1"
 
+        />
+
+    <TextView
+        android:id="@+id/tv_nomsg"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:textSize="16sp"
+        android:text="没有数据"
+        android:gravity="center"
+        android:visibility="gone"
         />
 
 

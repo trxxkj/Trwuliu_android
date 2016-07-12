@@ -11,13 +11,12 @@ import cn.trxxkj.trwuliu.driver.R;
 
 /**
  * 运力模块
- * @author cyh 2016.6.17 上午10:10
+ * @author cyh 2016.6.20 上午10:10
  */
 
 public class CapacityActivity extends Activity implements View.OnClickListener {
 
 //    private ImageView imgBack;
-    private TextView myOwner;
     private TextView myCar;
     private TextView myDriver;
 
@@ -32,12 +31,10 @@ public class CapacityActivity extends Activity implements View.OnClickListener {
     private void initView() {
 //        imgBack = (ImageView) findViewById(R.id.img_back);
 
-        myOwner = (TextView) findViewById(R.id.my_owner);
         myCar = (TextView) findViewById(R.id.my_car);
         myDriver = (TextView) findViewById(R.id.my_driver);
 
 //        imgBack.setOnClickListener(this);
-        myOwner.setOnClickListener(this);
         myCar.setOnClickListener(this);
         myDriver.setOnClickListener(this);
     }
@@ -47,9 +44,6 @@ public class CapacityActivity extends Activity implements View.OnClickListener {
         switch (v.getId()) {
             case R.id.img_back:
                 finish();
-                break;
-            case R.id.my_owner:
-                startActivity(new Intent(this, AddOwnerActivity.class));
                 break;
             case R.id.my_car:
                 startActivity(new Intent(this, MyCarActivity.class));

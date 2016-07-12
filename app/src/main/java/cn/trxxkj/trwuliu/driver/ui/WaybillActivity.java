@@ -22,7 +22,7 @@ import cn.trxxkj.trwuliu.driver.ui.fragment.RefuseWbFragment;
 
 /**
  * 运单功能
- * @author cyh 2016.5.25
+ * @author cyh 2016.6.25  上午12:25
  */
 
 public class WaybillActivity extends FragmentActivity implements View.OnClickListener, ViewPager.OnPageChangeListener {

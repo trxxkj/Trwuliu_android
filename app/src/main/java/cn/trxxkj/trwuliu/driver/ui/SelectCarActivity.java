@@ -26,7 +26,7 @@ import cn.trxxkj.trwuliu.driver.R;
 
 /**
  * 选择车辆功能
- * @author cyh 2016.6.10 上午11:04
+ * @author cyh 2016.6.22 上午11:04
  */
 
 public class SelectCarActivity extends Activity {

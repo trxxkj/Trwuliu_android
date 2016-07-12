@@ -12,8 +12,9 @@ import cn.trxxkj.trwuliu.driver.view.ViewHolder;
 
 /**
  * 已拒绝运单列表适配器
- * Created by admin on 2016/6/24.
+ * @author cyh 2016.6.24 下午16:40
  */
+
 public class RefuseWbAdapter extends BaseAdapter {
 
     private LayoutInflater mInflater = null;

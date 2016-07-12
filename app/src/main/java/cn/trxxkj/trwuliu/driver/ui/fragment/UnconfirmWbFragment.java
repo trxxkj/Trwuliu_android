@@ -14,7 +14,7 @@ import cn.trxxkj.trwuliu.driver.ui.WbDetailActivity;
 
 /**
  * 已确认运单界面
- * @author cyh 2016.4.17下午14:39
+ * @author cyh 2016.6.17下午14:39
  */
 public class UnconfirmWbFragment extends ListFragment {
 

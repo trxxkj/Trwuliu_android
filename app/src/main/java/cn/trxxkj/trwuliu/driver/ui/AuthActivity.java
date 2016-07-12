@@ -20,7 +20,7 @@ import cn.trxxkj.trwuliu.driver.R;
 
 /**
  * 认证模块
- * @author cyh 2016.4.10 上午11:25
+ * @author cyh 2016.6.16 上午11:25
  */
 
 public class AuthActivity extends Activity implements View.OnClickListener, ViewPager.OnPageChangeListener {
@@ -144,10 +144,10 @@ public class AuthActivity extends Activity implements View.OnClickListener, View
                 viewPager.setCurrentItem(1);
                 break;
             case R.id.img_personal_upload:      //个人身份证上传
-                startActivity(new Intent(this, UploadActivity.class));
+                startActivity(new Intent(this, UploadImageActivity.class));
                 break;
             case R.id.img_driver_upload:        //司机驾照上传
-                startActivity(new Intent(this,UploadActivity.class));
+                startActivity(new Intent(this,UploadImageActivity.class));
                 break;
             case R.id.submit_review_personal:   //个人提交审核
                submitReviewPersonal();

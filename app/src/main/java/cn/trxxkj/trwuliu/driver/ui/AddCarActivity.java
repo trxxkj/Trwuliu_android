@@ -9,7 +9,7 @@ import cn.trxxkj.trwuliu.driver.R;
 
 /**
  * 添加车辆
- * @author cyh 2016.6.10 下午15:20
+ * @author cyh 2016.6.18 下午15:20
  */
 
 public class AddCarActivity extends Activity implements View.OnClickListener {

@@ -8,6 +8,8 @@ public class UserBean {
     public String code;
     public String serviceTime;
 
+    public String message;
+
     public ReturnData returnData;
 
     public static class ReturnData {
@@ -19,7 +21,6 @@ public class UserBean {
         public String realName;
         public String tokenId;
         public String userpercheck;
-
 
     }
 

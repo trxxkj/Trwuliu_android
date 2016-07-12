@@ -14,7 +14,7 @@ import cn.trxxkj.trwuliu.driver.ui.WbTrackActivity;
 
 /**
  * 进行中运单界面
- * @author cyh 2016.5.04 下午17:30
+ * @author cyh 2016.6.17 下午17:30
  */
 public class OngoingWbFragment extends ListFragment {
 

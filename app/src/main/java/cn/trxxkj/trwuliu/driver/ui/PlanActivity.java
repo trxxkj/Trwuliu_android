@@ -22,7 +22,7 @@ import cn.trxxkj.trwuliu.driver.ui.fragment.CompletePlanFragment;
 
 /**
  * 计划功能
- * @author cyh 2016.6.12 下午17:10
+ * @author cyh 2016.6.17 下午19:10
  */
 
 public class PlanActivity extends FragmentActivity implements View.OnClickListener, ViewPager.OnPageChangeListener {

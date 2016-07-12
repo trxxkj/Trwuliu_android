@@ -19,8 +19,9 @@ import cn.trxxkj.trwuliu.driver.R;
 
 /**
  * 系统消息列表界面
- * @author cyh 2016.4.30 上午11:30
+ * @author cyh 2016.6.30 上午11:30
  */
+
 public class MessageFragment extends Fragment implements View.OnClickListener {
 
     private View layout;

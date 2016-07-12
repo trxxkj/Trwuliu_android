@@ -3,4 +3,8 @@
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string name="search_input_vel">请输入司机账号</string>
+    <string name="driver_name">姓&#160;&#160;&#160;&#160;&#160;&#160;&#160;名</string>
+    <string name="driver_nc">备&#160;&#160;&#160;&#160;&#160;&#160;&#160;注</string>
 </resources>

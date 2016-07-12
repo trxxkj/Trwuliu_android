@@ -1,6 +1,8 @@
 package cn.trxxkj.trwuliu.driver.adapter;
 
 import android.content.Context;
+import android.content.Intent;
+import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -8,25 +10,33 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import java.util.List;
+
 import cn.trxxkj.trwuliu.driver.R;
+import cn.trxxkj.trwuliu.driver.bean.DriverBean;
 import cn.trxxkj.trwuliu.driver.view.ViewHolder;
 /**
- * 运力模块我的司机列表适配器
- * @author cyh 2016.6.20 上午10:45
+ * 运力模块   我的司机列表   适配器
+ *
  */
 public class MyDriverAdapter extends BaseAdapter {
 
+    private List<DriverBean.ReturnData> dirvelist;
+
     private LayoutInflater mInflater = null;
 
-    public MyDriverAdapter(Context context) {
+    private Context context;
+
+    public MyDriverAdapter(Context context, List<DriverBean.ReturnData> dirvelist ) {
         super();
-        mInflater = (LayoutInflater) context
-                .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        this.context = context;
+        this.dirvelist = dirvelist;
+        mInflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
     }
 
     @Override
     public int getCount() {
-        return 10;
+        return dirvelist.size();
     }
 
     @Override
@@ -40,7 +50,7 @@ public class MyDriverAdapter extends BaseAdapter {
     }
 
     @Override
-    public View getView(int position, View convertView, ViewGroup parent) {
+    public View getView(final int position, View convertView, ViewGroup parent) {
 
         ViewHolder holder = null;
         if (convertView == null) {
@@ -56,9 +66,9 @@ public class MyDriverAdapter extends BaseAdapter {
             holder = (ViewHolder) convertView.getTag();
         }
 
-        holder.mydriver.setText("张司机");
-        holder.verified.setText("已认证");
-        holder.mydriverPhoneNumber.setText("电话:13000000000");
+        holder.mydriver.setText(dirvelist.get(position).drivername);
+        holder.verified.setVisibility(View.GONE);
+        holder.mydriverPhoneNumber.setText(dirvelist.get(position).drivertel);
         holder.callLogo.setImageResource(R.drawable.call_phone);
 
         holder.callLogo.setOnClickListener(new View.OnClickListener() {
@@ -66,8 +76,15 @@ public class MyDriverAdapter extends BaseAdapter {
             @Override
             public void onClick(View v) {
 
+                Intent intent = new Intent();
+                intent.setAction("android.intent.action.CALL");
+                intent.addCategory("android.intent.category.DEFAULT");
+                intent.setData(Uri.parse("tel:" + dirvelist.get(position).drivertel));
+                context.startActivity(intent);
+
             }
         });
+
         return convertView;
     }
 

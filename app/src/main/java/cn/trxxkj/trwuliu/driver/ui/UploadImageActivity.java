@@ -15,6 +15,11 @@ import java.io.File;
 
 import cn.trxxkj.trwuliu.driver.R;
 
+/**
+ * 图片截图上传功能
+ * @author cyh 2016.6.20 下午16:45
+ */
+
 public class UploadImageActivity extends Activity {
 
     private static final int PHOTO_REQUEST_CAMERA = 1;// 拍照

@@ -27,42 +27,39 @@
         android:layout_marginTop="10dp"
         android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/my_owner"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="10dp"
-            android:drawableLeft="@drawable/icon_ylcz2x"
-            android:gravity="center"
-            android:text="我的车主" />
-
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="1px"
-            android:background="#d7d7d7" />
-
-        <TextView
+        <LinearLayout
             android:id="@+id/my_car"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="10dp"
-            android:drawableLeft="@drawable/icon_ylcl2x"
-            android:gravity="center"
-            android:text="我的车辆" />
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:drawableLeft="@drawable/icon_ylcl2x"
+                android:gravity="center"
+                android:text="我的车辆" />
+
+        </LinearLayout>
 
         <View
             android:layout_width="match_parent"
             android:layout_height="1px"
             android:background="#d7d7d7" />
 
-        <TextView
+        <LinearLayout
             android:id="@+id/my_driver"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="10dp"
-            android:drawableLeft="@drawable/icon_ylsj2x"
-            android:gravity="center"
-            android:text="我的司机" />
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:drawableLeft="@drawable/icon_ylsj2x"
+                android:gravity="center"
+                android:text="我的司机" />
+        </LinearLayout>
     </LinearLayout>
 
 </RelativeLayout>

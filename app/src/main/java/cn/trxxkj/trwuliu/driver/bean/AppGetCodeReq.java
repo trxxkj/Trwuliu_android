@@ -5,7 +5,7 @@ import cn.trxxkj.trwuliu.driver.base.BaseReq;
 
 /**
  * 获取手机验证码请求参数
- * @author cyh 2016.5.22下午15:23
+ * @author cyh 2016.6.22下午15:23
  */
 
 public class AppGetCodeReq extends BaseReq {

@@ -3,6 +3,7 @@ package cn.trxxkj.trwuliu.driver.ui;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
@@ -48,13 +49,15 @@ import cn.trxxkj.trwuliu.driver.bean.Head;
 import cn.trxxkj.trwuliu.driver.bean.UserBean;
 import cn.trxxkj.trwuliu.driver.utils.App;
 import cn.trxxkj.trwuliu.driver.utils.Md5Utils;
+import cn.trxxkj.trwuliu.driver.utils.MyContents;
+import cn.trxxkj.trwuliu.driver.utils.TRurl;
 
 /**
  * 用户登录功能
- * @author cyh 2016.4.1 上午8:49
+ * @author cyh 2016.6.15 上午8:49
  */
 
-public class  LoginActivity extends Activity implements View.OnClickListener, ViewPager.OnPageChangeListener {
+public class LoginActivity extends Activity implements View.OnClickListener, ViewPager.OnPageChangeListener {
     //账号登录
     private EditText account;
     private EditText passWord;
@@ -83,12 +86,18 @@ public class  LoginActivity extends Activity implements View.OnClickListener, Vi
     private Button phoneRegister;
     private Button btnLoginCode;
 
+
     protected static final int SUCCESS = 0;
     protected static final int FAILTURE = 1;
     protected static final int ERROR = 2;
 
     private Context context;
     App app;
+
+    //  登陆 ueser 对象
+    private UserBean userBean;
+
+    private SharedPreferences sp;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -98,14 +107,18 @@ public class  LoginActivity extends Activity implements View.OnClickListener, Vi
 
         app = (App)this.getApplication();
 
+        sp = getSharedPreferences(MyContents.SP_NAME, MODE_PRIVATE);
+
         if (android.os.Build.VERSION.SDK_INT > 9) {
             StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
             StrictMode.setThreadPolicy(policy);
         }
+
         initView();
     }
 
     private void initView(){
+
         accountTextView = (TextView) findViewById(R.id.tv_account);
         phoneTextView = (TextView) findViewById(R.id.tv_phone_number);
         indicator1 = findViewById(R.id.indicator1);
@@ -147,6 +160,7 @@ public class  LoginActivity extends Activity implements View.OnClickListener, Vi
         phoneLogin.setOnClickListener(this);
         phoneRegister.setOnClickListener(this);
         btnLoginCode.setOnClickListener(this);
+
     }
 
     @Override
@@ -178,7 +192,7 @@ public class  LoginActivity extends Activity implements View.OnClickListener, Vi
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
-            case R.id.img_back:    //返回
+            case R.id.img_back:  //返回
                 finish();
                 break;
             case R.id.layout_account_login:  //账号登录
@@ -187,13 +201,11 @@ public class  LoginActivity extends Activity implements View.OnClickListener, Vi
             case R.id.layout_phone_number_login:  //手机号快捷登录
                 viewPager.setCurrentItem(1);
                 break;
-            case R.id.tv_find_psw:
+            case R.id.tv_find_psw:  // 密码
                 startActivity(new Intent(this, ForgetPswActivity.class));
                 break;
             case R.id.btn_account_login: // 账号登陆btn
                 try {
-
-                   // loginAccount();
 
                     getData();
 
@@ -201,18 +213,16 @@ public class  LoginActivity extends Activity implements View.OnClickListener, Vi
                     e.printStackTrace();
                 }
                 break;
-            case R.id.btn_account_register:
+            case R.id.btn_account_register: // 跳转  登陆页面
                 startActivity(new Intent(this, RegisterActivity.class));
                 break;
-            case R.id.btn_code_login:
+            case R.id.btn_code_login: // 手机号 快速登陆 获取登陆 验证码
                 getCode();
                 break;
-            case R.id.btn_phone_login:
-                try {
-                    loginPhone();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
+            case R.id.btn_phone_login: // 手机号 快速登陆
+
+                loginPhone();
+
                 break;
             case R.id.btn_phone_register:
                 break;
@@ -245,8 +255,7 @@ public class  LoginActivity extends Activity implements View.OnClickListener, Vi
         }
 
         @Override
-        public void destroyItem(ViewGroup container, int position,
-                                Object object) {
+        public void destroyItem(ViewGroup container, int position, Object object) {
             container.removeView(viewList.get(position));
 
         }
@@ -254,68 +263,10 @@ public class  LoginActivity extends Activity implements View.OnClickListener, Vi
     }
 
     /**
-     * 用户账号登录
-     */
-    private void loginAccount() throws IOException {
-
-        URL url = null;
-        try {
-            url = new URL("http://172.19.4.23:8091/app/member/login");
-        } catch (MalformedURLException e) {
-            e.printStackTrace();
-        }
-        // 打开url连接
-        HttpURLConnection connection = (HttpURLConnection) url.openConnection();
-        // 设置url请求方式 ‘get’ 或者 ‘post’
-        connection.setRequestMethod("POST");
-        StringBuffer params = new StringBuffer();
-        AppParam<AppMemberReq> appParam = new AppParam<AppMemberReq>();
-        Head head = new Head();
-        head.setAccount(account.getText().toString());
-        head.setAppVersion("1.0.0");
-        head.setCallType("android");
-
-        AppMemberReq req = new AppMemberReq();
-        req.setAccount(account.getText().toString());
-        req.setLoginType(0);
-        req.setPswdMd5(Md5Utils.getMD5Code(passWord.getText().toString()));
-
-
-        appParam.setHead(head);
-        appParam.setBody(req);
-
-        appParam.setSign("!&@#2016#");
-        String sign = Md5Utils.getMD5Code(JSON.toJSONString(appParam));
-        appParam.setSign(sign);
-
-        // 表单参数与get形式一样
-        connection.setDoOutput(true);// 是否输入参数
-        params.append("param").append("=").append(JSON.toJSONString(appParam));
-        byte[] bypes = params.toString().getBytes();
-        connection.getOutputStream().write(bypes);// 输入参数
-
-        // 发送
-        BufferedReader in = new BufferedReader(new InputStreamReader(connection.getInputStream()));
-        String response = in.readLine();
-        System.out.println(response);
-    }
-
-    /**
      * 手机号快捷登录
      */
-    private void loginPhone() throws IOException {
+    private void loginPhone() {
 
-        URL url = null;
-        try {
-            url = new URL("http://172.19.4.23:8091/app/member/login");
-        } catch (MalformedURLException e) {
-            e.printStackTrace();
-        }
-        // 打开url连接
-        HttpURLConnection connection = (HttpURLConnection) url.openConnection();
-        // 设置url请求方式 ‘get’ 或者 ‘post’
-        connection.setRequestMethod("POST");
-        StringBuffer params = new StringBuffer();
         AppParam<AppMemberReq> appParam = new AppParam<AppMemberReq>();
         Head head = new Head();
         head.setAccount(phoneNumber.getText().toString());
@@ -326,6 +277,7 @@ public class  LoginActivity extends Activity implements View.OnClickListener, Vi
         req.setAccount(phoneNumber.getText().toString());
         req.setLoginType(0);
         req.setAuthCode(btnLoginCode.getText().toString());
+
 //        req.setPswdMd5(Md5Utils.getMD5Code(passWord.getText().toString()));
 
         appParam.setHead(head);
@@ -335,16 +287,41 @@ public class  LoginActivity extends Activity implements View.OnClickListener, Vi
         String sign = Md5Utils.getMD5Code(JSON.toJSONString(appParam));
         appParam.setSign(sign);
 
-        // 表单参数与get形式一样
-        connection.setDoOutput(true); // 是否输入参数
-        params.append("param").append("=").append(JSON.toJSONString(appParam));
-        byte[] bypes = params.toString().getBytes();
-        connection.getOutputStream().write(bypes); // 输入参数
+        RequestParams params = new RequestParams(TRurl.LOGIN_URL);
+        params.setConnectTimeout(15*1000);
 
-        // 发送
-        BufferedReader in = new BufferedReader(new InputStreamReader(connection.getInputStream()));
-        String response = in.readLine();
-        System.out.println(response);
+        params.addBodyParameter("param" , JSON.toJSONString(appParam));
+
+        x.http().post(params,new Callback.CommonCallback<String>() {
+            Message msg = Message.obtain();
+            @Override
+            public void onSuccess(String s) {
+
+                System.out.println("-----------" + s
+                        + "-------------------");
+
+                msg.obj = s;
+                msg.what = SUCCESS;
+                userhandler.sendMessage(msg);
+
+            }
+
+            @Override
+            public void onError(Throwable throwable, boolean b) {
+                msg.what = FAILTURE;
+                msg.obj = throwable.getMessage();
+                userhandler.sendMessage(msg);
+            }
+
+            @Override
+            public void onFinished() {
+            }
+            @Override
+            public void onCancelled(CancelledException e) {
+            }
+
+        });
+
 
     }
 
@@ -360,7 +337,7 @@ public class  LoginActivity extends Activity implements View.OnClickListener, Vi
         public void handleMessage(Message msg) {
             second--;
             if (second == 0) {
-                timer.cancel();//如果倒计时完成,取消定时事件
+                timer.cancel();  // 如果倒计时完成,取消定时事件
                 btnLoginCode.setEnabled(true);
                 second = 60;
                 btnLoginCode.setText("重新获取");
@@ -448,21 +425,28 @@ public class  LoginActivity extends Activity implements View.OnClickListener, Vi
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
+
                 System.out.println(response);
+//                Message msg = Message.obtain();
+//
+//                msg.obj = response;
+//                msg.what = SUCCESS;
+//                userhandler.sendMessage(msg);
+
                 timer = new Timer();
                 timer.schedule(new TimerTask() {
                     @Override
                     public void run() {
                         handler.sendEmptyMessage(0);
                     }
-                }, 0, 1000);//任务事件,延迟执行时间,定时执行时间
+                }, 0, 1000);  //任务事件,延迟执行时间,定时执行时间
 
             }
         }.start();
     }
 
     /**
-     *  获取数据
+     * 用户账号登录
      */
     public void getData() {
 
@@ -473,6 +457,7 @@ public class  LoginActivity extends Activity implements View.OnClickListener, Vi
         head.setAppVersion("1.0.0");
         head.setCallType("android");
 
+        // body 层
         AppMemberReq req = new AppMemberReq();
         req.setAccount(account.getText().toString());
         req.setLoginType(0);
@@ -485,9 +470,8 @@ public class  LoginActivity extends Activity implements View.OnClickListener, Vi
         String sign = Md5Utils.getMD5Code(JSON.toJSONString(appParam));
         appParam.setSign(sign);
 
-        String url = "http://172.19.4.23:8091/app/member/login";
-
-        RequestParams params = new RequestParams(url);
+        RequestParams params = new RequestParams(TRurl.LOGIN_URL);
+        params.setConnectTimeout(15*1000);
 
         params.addBodyParameter("param" , JSON.toJSONString(appParam));
 
@@ -508,65 +492,66 @@ public class  LoginActivity extends Activity implements View.OnClickListener, Vi
             @Override
             public void onError(Throwable throwable, boolean b) {
                 msg.what = FAILTURE;
-                handler.sendMessage(msg);
+                msg.obj = throwable.getMessage();
+                userhandler.sendMessage(msg);
             }
 
             @Override
             public void onFinished() {
-
             }
-
             @Override
             public void onCancelled(CancelledException e) {
-
             }
 
         });
 
-//        requestUrl(HttpMethod.POST, url, params, new RequestCallBack<String>() {
-//
-//                    Message msg = Message.obtain();
-//
-//                    @Override
-//                    public void onSuccess( ResponseInfo<String> responseInfo) {
-//                        String json = responseInfo.result;
-//                        System.out.println("-----------" + json
-//                                + "-------------------");
-//
-//                        msg.obj = json;
-//                        msg.what = SUCCESS;
-//                        userhandler.sendMessage(msg);
-//
-//                    }
-//
-//                    @Override
-//                    public void onFailure(HttpException error, String msgback) {
-//
-//                        msg.what = FAILTURE;
-//                        handler.sendMessage(msg);
-//
-//                    }
-//
-//                });
     }
-
-    private UserBean userBean;
 
     private Handler userhandler = new Handler() {
 
         public void handleMessage(Message msg) {
 
             switch (msg.what) {
+
                 case SUCCESS: // 成功
+
                     String result = (String) msg.obj;
                     Gson gson = new  Gson();
                     userBean = gson.fromJson(result, UserBean.class);
-                    // 设置tokenid
-                    app.setToken(userBean.returnData.tokenId);
-                    app.setUserid(userBean.returnData.id);
-                    Toast.makeText(context,userBean.returnData.cellphone,Toast.LENGTH_SHORT).show();
+
+                    if ("000000".equals(userBean.code)) {
+
+                        sp.edit().putBoolean(MyContents.ISLOGIN, true).commit();
+
+                        sp.edit().putString(MyContents.ACCOUNTNUMBER, account.getText().toString()).commit();
+
+                        sp.edit().putString(MyContents.PASSWORD, passWord.getText().toString()).commit();
+
+                        sp.edit().putString(MyContents.TOKENID, userBean.returnData.tokenId).commit();
+                        sp.edit().putString(MyContents.ID, userBean.returnData.id).commit();
+
+                        app.setToken(userBean.returnData.tokenId);
+                        app.setUserid(userBean.returnData.id);
+
+//                    Toast.makeText(context , "登陆成功" , Toast.LENGTH_SHORT).show();
+
+                        startActivity(new Intent(context, MainActivity.class));
+                        finish();
+
+                    } else {  //E200002
+
+                        Toast.makeText(context , userBean.message , Toast.LENGTH_SHORT).show();
+
+                    }
+
                     break;
+
                 case FAILTURE: // 失败
+
+                    String error = (String) msg.obj;
+
+                    Toast.makeText(context , "网络异常！" ,Toast.LENGTH_SHORT).show();
+
                     break;
                 default:
                     break;
@@ -579,6 +564,7 @@ public class  LoginActivity extends Activity implements View.OnClickListener, Vi
 
     /**
      * 判断网络连接状态
+     *
      * @param context
      * @return
      */
@@ -594,26 +580,6 @@ public class  LoginActivity extends Activity implements View.OnClickListener, Vi
         }
         return false;
     }
-
-//    // 访问网络
-//    public <T> void requestUrl(HttpMethod method, String url,
-//                               RequestParams params, RequestCallBack<T> callBack) {
-//
-//        HttpUtils httpUtils = new HttpUtils();
-//        httpUtils.configCurrentHttpCacheExpiry(5000);// 设置缓存5秒,5秒内直接返回上次成功请求的结果。
-////        DefaultHttpClient httpClient = (DefaultHttpClient) httpUtils
-////                .getHttpClient();
-//
-//        boolean i = isNetworkConnected(this);
-//        if (i == false) {
-//
-//            Toast.makeText(this, "网络不可用", Toast.LENGTH_SHORT).show();
-//            return;
-//        }
-//
-//        httpUtils.send(method, url, params, callBack);
-//
-//    }
 
 }
 

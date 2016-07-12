@@ -9,7 +9,7 @@ import java.util.List;
 
 /**
  * 百度云推送
- * @author cyh 2016.5.23 下午15:35
+ * @author cyh 2016.6.23 下午15:35
  */
 
 public class PushReceiver extends PushMessageReceiver {

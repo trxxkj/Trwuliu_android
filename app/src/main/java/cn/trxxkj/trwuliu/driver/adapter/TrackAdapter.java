@@ -16,8 +16,9 @@ import cn.trxxkj.trwuliu.driver.bean.Track;
 
 /**
  * 运单轨迹列表适配器
- * @author cyh 2016.6.10 上午11:20
+ * @author cyh 2016.6.25 上午11:20
  */
+
 public class TrackAdapter extends BaseAdapter {
 
     private List<Track> mList = null;

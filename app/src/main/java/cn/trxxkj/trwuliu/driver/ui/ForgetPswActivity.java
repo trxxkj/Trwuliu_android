@@ -31,7 +31,7 @@ import cn.trxxkj.trwuliu.driver.utils.Md5Utils;
 
 /**
  * 用户忘记密码找回功能
- * @author cyh 2016.5.24 下午15:10
+ * @author cyh 2016.6.15 下午15:10
  */
 public class ForgetPswActivity extends Activity implements View.OnClickListener {
 
