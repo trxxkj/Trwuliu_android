@@ -8,14 +8,12 @@ import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.util.ArrayList;
 
 import cn.trxxkj.trwuliu.driver.R;
-import cn.trxxkj.trwuliu.driver.ui.fragment.MyCarFragment;
 
 /**
  * 我的车辆
@@ -26,8 +24,6 @@ public class MyCarActivity extends FragmentActivity implements View.OnClickListe
     private ViewPager viewPager;
     private ImageView imgBack;
     private TextView addCar;
-
-    private MyCarFragment myCarFragment;
 
     private ArrayList<Fragment> fragmentList;
 
@@ -47,10 +43,7 @@ public class MyCarActivity extends FragmentActivity implements View.OnClickListe
         addCar = (TextView) findViewById(R.id.add_car);
         viewPager = (ViewPager) findViewById(R.id.viewPager);
 
-        myCarFragment = new MyCarFragment();
-
         fragmentList = new ArrayList<>();
-        fragmentList.add(myCarFragment);
         viewPager.setAdapter(new MyFragmentPagerAdapter(getSupportFragmentManager()));
         imgBack.setOnClickListener(this);
         addCar.setOnClickListener(this);
