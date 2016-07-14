@@ -7,7 +7,10 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
 
+import java.util.List;
+
 import cn.trxxkj.trwuliu.driver.R;
+import cn.trxxkj.trwuliu.driver.bean.PlanBean;
 import cn.trxxkj.trwuliu.driver.view.ViewHolder;
 
 /**
@@ -17,17 +20,21 @@ import cn.trxxkj.trwuliu.driver.view.ViewHolder;
 
 public class CompletePlanAdapter extends BaseAdapter {
 
+    private List<PlanBean.ReturnData> planlist;
     private LayoutInflater mInflater = null;
+    private Context context;
 
-    public CompletePlanAdapter(Context context) {
+    public CompletePlanAdapter(Context context,List<PlanBean.ReturnData> planlist) {
         super();
+        this.context = context;
+        this.planlist = planlist;
         mInflater = (LayoutInflater) context
                 .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
     }
 
     @Override
     public int getCount() {
-        return 10;
+        return planlist.size();
     }
 
     @Override
@@ -58,10 +65,10 @@ public class CompletePlanAdapter extends BaseAdapter {
             holder = (ViewHolder) convertView.getTag();
         }
 
-        holder.planCode.setText("计划编码:JH3");
-        holder.status.setText("已完成");
-        holder.goods.setText("40吨水泥");
-        holder.dateGoods.setText("2016-04-16");
+        holder.planCode.setText(planlist.get(position).planCode);
+        holder.status.setText(planlist.get(position).status);
+        holder.goods.setText(planlist.get(position).cargoname);
+        holder.dateGoods.setText(planlist.get(position).createtime);
         holder.ownerCar.setText("车主发车");
 
         holder.ownerCar.setOnClickListener(new View.OnClickListener() {

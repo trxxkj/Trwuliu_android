@@ -16,7 +16,7 @@ public class TRurl1 {
     /**
      * 计划详情
      */
-    public final static String  PLANDRTAIL = BASE_URL + "/app/planvender/detail";
+    public final static String  PLANDETAIL = BASE_URL + "/app/planvender/detail";
 
     /**
      * 计划统计

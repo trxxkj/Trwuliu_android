@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#f4f4f4"
-    tools:context="ui.PlanDetailActivity">
+    tools:context=".ui.UnconfirmPlanActivity">
 
     <RelativeLayout
         android:id="@+id/layout_plandetail_topbar"

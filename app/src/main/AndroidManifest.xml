@@ -48,14 +48,23 @@
         <activity android:name=".ui.PlanActivity" />
         <activity android:name=".ui.WbDetailActivity" />
         <activity android:name=".ui.WbTrackActivity" />
-        <activity android:name=".ui.PlanDetailActivity" />
+        <activity android:name=".ui.UnconfirmPlanActivity" />
         <activity android:name=".ui.PlanOngoingActivity" />
         <activity android:name=".ui.PostWaybillActivity" />
         <activity android:name=".ui.SelectCarActivity" />
         <activity android:name=".ui.CapacityActivity" />
-        <activity android:name=".ui.MyCarActivity" />
+        <activity
+            android:name=".ui.MyCarActivity"
+            android:windowSoftInputMode="stateHidden|adjustResize"/>
+
         <activity android:name=".ui.AddCarActivity" />
-        <activity android:name=".ui.MyDriverActivity" />
+
+        <activity android:name=".ui.ChoiceDriver" />
+
+        <activity
+            android:name=".ui.MyDriverActivity"
+            android:windowSoftInputMode="stateHidden|adjustResize"/>
+
         <activity android:name=".ui.AddDriverActivity" />
         <activity android:name=".ui.SettingActivity" />
         <activity android:name=".ui.MyMessageActivity" />

@@ -1,5 +1,6 @@
 package cn.trxxkj.trwuliu.driver.utils;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
@@ -13,6 +14,7 @@ import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.util.Log;
+import android.widget.Toast;
 
 import java.io.InputStream;
 import java.net.HttpURLConnection;
@@ -58,6 +60,28 @@ public class Utils {
         }
         return false;
     }
+
+    /**
+     *  吐司  工具类
+     * @param ctx
+     * @param msg
+     */
+    public static void showToast(final Activity ctx, final String msg){
+
+        if("main".equals(Thread.currentThread().getName())){
+            // 如果是主线程，直接弹toast
+            Toast.makeText(ctx, msg, Toast.LENGTH_SHORT).show();
+        }else{
+            // 如果是子线程，
+            ctx.runOnUiThread(new Runnable() {
+                @Override
+                public void run() {
+                    Toast.makeText(ctx, msg, Toast.LENGTH_SHORT).show();
+                }
+            });
+        }
+    }
+
 
 
     /**

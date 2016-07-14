@@ -5,10 +5,8 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Handler;
 import android.os.Message;
-import android.support.annotation.NonNull;
 import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -26,10 +24,7 @@ import org.xutils.x;
 
 
 import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Iterator;
 import java.util.List;
-import java.util.ListIterator;
 
 import cn.trxxkj.trwuliu.driver.R;
 import cn.trxxkj.trwuliu.driver.adapter.MyDriverAdapter;
@@ -40,6 +35,7 @@ import cn.trxxkj.trwuliu.driver.bean.MyDrivers;
 import cn.trxxkj.trwuliu.driver.utils.App;
 import cn.trxxkj.trwuliu.driver.utils.Md5Utils;
 import cn.trxxkj.trwuliu.driver.utils.MyContents;
+import cn.trxxkj.trwuliu.driver.utils.MyLog;
 import cn.trxxkj.trwuliu.driver.utils.TRurl;
 import cn.trxxkj.trwuliu.driver.utils.Utils;
 
@@ -147,7 +143,7 @@ public class MyDriverActivity extends FragmentActivity implements View.OnClickLi
             @Override
             public void onSuccess(String s) {
 
-                System.out.println("-----------" + s + "---------------");
+                MyLog.e("mydriver","-----------" + s + "---------------");
                 msg.obj = s;
                 msg.what = SUCCESS;
                 myDhandler.sendMessage(msg);
@@ -218,7 +214,7 @@ public class MyDriverActivity extends FragmentActivity implements View.OnClickLi
 
                         }
 
-                    } else {  //E200002
+                    } else {  // E200002
                         Toast.makeText(context , "请求失败" , Toast.LENGTH_SHORT).show();
                     }
                     break;

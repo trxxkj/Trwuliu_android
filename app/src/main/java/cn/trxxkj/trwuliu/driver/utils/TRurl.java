@@ -7,7 +7,7 @@ public class TRurl {
 
 
     // http://172.19.4.23:8091     http://172.20.10.123:8080
-    public final static String BASE_URL = "http://172.20.10.123:8080";
+    public final static String BASE_URL = "http://172.19.4.23:8091";
 
     /**
      * 登陆
@@ -36,5 +36,19 @@ public class TRurl {
      *  根据账号  查询司机
      */
     public final static String SEARCHDRIVER =  BASE_URL + "/app/MemberInfo/findMemberCellphone";
+
+    /**
+     * 我的 车辆
+     */
+    public final static String MYCAR =  BASE_URL + "/app/VehicleAndDriver/myVehicle";
+
+    /**
+     *  车辆 绑定司机
+     */
+    public final static String CARADDDRIVER = BASE_URL + "/app/VehicleAndDriver/addVehicleDriver";
+    /**
+     * 车辆  司机 解除绑定
+     */
+    public final static String CARREMOVEDRIVER = BASE_URL + "/app/VehicleAndDriver/delVehicleDriver";
 
 }

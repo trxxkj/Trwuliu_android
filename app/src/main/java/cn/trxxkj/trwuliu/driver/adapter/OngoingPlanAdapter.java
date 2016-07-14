@@ -8,7 +8,10 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import java.util.List;
+
 import cn.trxxkj.trwuliu.driver.R;
+import cn.trxxkj.trwuliu.driver.bean.PlanBean;
 import cn.trxxkj.trwuliu.driver.view.ViewHolder;
 
 /**
@@ -18,17 +21,21 @@ import cn.trxxkj.trwuliu.driver.view.ViewHolder;
 
 public class OngoingPlanAdapter extends BaseAdapter {
 
+    private List<PlanBean.ReturnData> planlist;
     private LayoutInflater mInflater = null;
+    private Context context;
 
-    public OngoingPlanAdapter(Context context) {
+    public OngoingPlanAdapter(Context context,List<PlanBean.ReturnData> planlist) {
         super();
+        this.context = context;
+        this.planlist = planlist;
         mInflater = (LayoutInflater) context
                 .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
     }
 
     @Override
     public int getCount() {
-        return 10;
+        return planlist.size();
     }
 
     @Override
@@ -61,10 +68,10 @@ public class OngoingPlanAdapter extends BaseAdapter {
             holder = (ViewHolder) convertView.getTag();
         }
 
-        holder.planCode.setText("计划编码:JH2");
+        holder.planCode.setText(planlist.get(position).planCode);
         holder.cookCar.setImageResource(R.drawable.cook_car);
-        holder.status.setText("进行中");
-        holder.goods.setText("40吨水泥");
+        holder.status.setText(planlist.get(position).status);
+        holder.goods.setText(planlist.get(position).cargoname);
         holder.dateGoods.setText("2016-04-16");
         holder.ownerCar.setText("车主发出");
         holder.dynamic.setText("发布");

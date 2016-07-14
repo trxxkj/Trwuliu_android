@@ -38,7 +38,7 @@ public class CompleteWbFragment extends ListFragment {
     @Override
     public void onListItemClick(ListView l, View v, int position, long id) {
         super.onListItemClick(l, v, position, id);
-//        startActivity(new Intent(getActivity(),PlanDetailActivity.class));
+//        startActivity(new Intent(getActivity(),UnconfirmPlanActivity.class));
     }
 
 }

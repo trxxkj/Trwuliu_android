@@ -29,7 +29,7 @@ public class UnconfirmPlanAdapter extends BaseAdapter {
     private LayoutInflater mInflater = null;
     private Context context;
 
-    public UnconfirmPlanAdapter(Context context, List<PlanBean.ReturnData> planlist) {
+    public UnconfirmPlanAdapter(Context context,List<PlanBean.ReturnData> planlist) {
         super();
         this.context = context;
         this.planlist = planlist;

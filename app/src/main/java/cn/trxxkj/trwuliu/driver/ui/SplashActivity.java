@@ -233,7 +233,9 @@ public class SplashActivity extends Activity{
 
                     String error = (String) msg.obj;
 
+                    startActivity(new Intent(context, LoginActivity.class));
                     Toast.makeText(context , "网络异常！" ,Toast.LENGTH_SHORT).show();
+                    finish();
 
                     break;
                 default:

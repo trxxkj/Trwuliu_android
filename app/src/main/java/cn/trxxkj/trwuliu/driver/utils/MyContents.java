@@ -5,6 +5,9 @@ package cn.trxxkj.trwuliu.driver.utils;
  */
 public class MyContents {
 
+    // 是否  打印 log 日志
+    public static boolean ISLOG = true;
+
     /**
      * sp 文件的 名称
      */

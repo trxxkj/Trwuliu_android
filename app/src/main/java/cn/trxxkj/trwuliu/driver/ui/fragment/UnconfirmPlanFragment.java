@@ -24,19 +24,15 @@ import java.util.ArrayList;
 import java.util.List;
 
 import cn.trxxkj.trwuliu.driver.R;
-import cn.trxxkj.trwuliu.driver.adapter.MyDriverAdapter;
 import cn.trxxkj.trwuliu.driver.adapter.UnconfirmPlanAdapter;
-import cn.trxxkj.trwuliu.driver.bean.AppMemberReq;
 import cn.trxxkj.trwuliu.driver.bean.AppParam;
 import cn.trxxkj.trwuliu.driver.bean.Head;
 import cn.trxxkj.trwuliu.driver.bean.MyPlan;
 import cn.trxxkj.trwuliu.driver.bean.PlanBean;
-import cn.trxxkj.trwuliu.driver.bean.UserBean;
-import cn.trxxkj.trwuliu.driver.ui.PlanDetailActivity;
+import cn.trxxkj.trwuliu.driver.ui.UnconfirmPlanActivity;
 import cn.trxxkj.trwuliu.driver.utils.App;
 import cn.trxxkj.trwuliu.driver.utils.Md5Utils;
 import cn.trxxkj.trwuliu.driver.utils.MyContents;
-import cn.trxxkj.trwuliu.driver.utils.TRurl;
 import cn.trxxkj.trwuliu.driver.utils.TRurl1;
 
 /**
@@ -204,6 +200,12 @@ public class UnconfirmPlanFragment extends ListFragment {
         }
 
     };
+
+    @Override
+    public void onListItemClick(ListView l, View v, int position, long id) {
+        super.onListItemClick(l, v, position, id);
+        startActivity(new Intent(getActivity(), UnconfirmPlanActivity.class));
+    }
 
 
 }
