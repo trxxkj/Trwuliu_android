@@ -72,8 +72,8 @@ public class OngoingPlanAdapter extends BaseAdapter {
         holder.cookCar.setImageResource(R.drawable.cook_car);
         holder.status.setText(planlist.get(position).status);
         holder.goods.setText(planlist.get(position).cargoname);
-        holder.dateGoods.setText("2016-04-16");
-        holder.ownerCar.setText("车主发出");
+        holder.dateGoods.setText(planlist.get(position).createtimeStr);
+        holder.ownerCar.setText(planlist.get(position).ownerName);
         holder.dynamic.setText("发布");
 
         holder.dynamic.setOnClickListener(new View.OnClickListener() {

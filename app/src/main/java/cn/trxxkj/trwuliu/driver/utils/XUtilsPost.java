@@ -28,11 +28,9 @@ public class XUtilsPost {
     public static final int FINALHTTP_RETURN_SUCCESS_FOUR = 600;// 访问成功
     public static final int FINALHTTP_RETURN_FAILED_FOUR  = 601;// 访问失败
 
-
     private Context mContext;
     private Handler handler;
     private SharedPreferences sp;
-
 
     public XUtilsPost(Context context, Handler handler ,SharedPreferences sp) {
         super();
@@ -90,9 +88,11 @@ public class XUtilsPost {
                 handler.sendMessage(msg);
 
             }
+
             @Override
             public void onFinished() {
             }
+
             @Override
             public void onCancelled(CancelledException e) {
             }
@@ -100,7 +100,6 @@ public class XUtilsPost {
         });
 
     }
-
 
     public void doPostTwo(String url,AppParam appParam) {
 
@@ -143,17 +142,19 @@ public class XUtilsPost {
                 handler.sendMessage(msg);
 
             }
+
             @Override
             public void onFinished() {
+
             }
+
             @Override
             public void onCancelled(CancelledException e) {
+
             }
 
         });
 
     }
-
-
 
 }

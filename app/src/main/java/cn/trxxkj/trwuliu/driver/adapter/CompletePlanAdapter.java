@@ -68,8 +68,8 @@ public class CompletePlanAdapter extends BaseAdapter {
         holder.planCode.setText(planlist.get(position).planCode);
         holder.status.setText(planlist.get(position).status);
         holder.goods.setText(planlist.get(position).cargoname);
-        holder.dateGoods.setText(planlist.get(position).createtime);
-        holder.ownerCar.setText("车主发车");
+        holder.dateGoods.setText(planlist.get(position).createtimeStr);
+        holder.ownerCar.setText(planlist.get(position).ownerName);
 
         holder.ownerCar.setOnClickListener(new View.OnClickListener() {
 

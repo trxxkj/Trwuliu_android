@@ -129,13 +129,10 @@ public class UnconfirmPlanFragment extends ListFragment {
 
         return v;
 
-
-
-
     }
 
     /**
-     * 未确认运单数据集合
+     * 未确认计划数据集合
      */
     private List<PlanBean.ReturnData> planlist;
     private Handler planhandler = new Handler() {

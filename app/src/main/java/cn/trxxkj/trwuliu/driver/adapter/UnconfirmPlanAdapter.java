@@ -77,8 +77,8 @@ public class UnconfirmPlanAdapter extends BaseAdapter {
         holder.cookCar.setImageResource(R.drawable.cook_car);
         holder.status.setText(planlist.get(position).status);
         holder.goods.setText(planlist.get(position).cargoname);
-        holder.dateGoods.setText(planlist.get(position).createtime);
-        holder.ownerCar.setText("车主发车");
+        holder.dateGoods.setText(planlist.get(position).createtimeStr);
+        holder.ownerCar.setText(planlist.get(position).ownerName);
         holder.callPhone.setImageResource(R.drawable.call_phone);
         holder.dynamic.setText("接收");
 

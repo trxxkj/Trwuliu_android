@@ -22,7 +22,7 @@ public class PlanBean {
         public String planCode;
         public String cargoname;
         public String ownerName;
-        public String createtime;
+        public String createtimeStr;
         public String status;
         public String measure;
         public String totalplanned;
